@@ -1,22 +1,20 @@
-import { Hero } from "@/components/hero";
-import { Catalog } from "@/components/catalog";
-import { Benefits } from "@/components/benefits";
-import { QuoteForm } from "@/components/quote-form";
-import { Footer } from "@/components/footer";
+import { Hero } from "@/components/hero"
+import { Benefits } from "@/components/benefits"
+import { Catalog } from "@/components/catalog"
+import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Casa Blanca Papel - Proveedor B2B de Papel Higiénico Premium",
-  description: "Casa Blanca Papel: proveedor confiable de papel higiénico comercial de calidad. Más suavidad, más rendimiento. Cotizaciones rápidas, entregas garantizadas 24-48h.",
-};
+  title: "Casa Blanca | Suavidad al mejor precio",
+  description: "Papel higiénico de alta calidad para cada momento de tu día.",
+}
 
 export default function Page() {
   return (
-    <main className="bg-background">
+    <main className="bg-background font-sans overflow-hidden">
       <Hero />
-      <Catalog />
       <Benefits />
-      <QuoteForm />
+      <Catalog />
       <Footer />
     </main>
-  );
+  )
 }
