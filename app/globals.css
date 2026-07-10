@@ -4,22 +4,18 @@
 
 @layer base {
   :root {
-    --background: 120 20% 98%; /* Crema muy suave */
-    --foreground: 210 60% 15%; /* Azul marino */
+    --background: 120 20% 98%;
+    --foreground: 210 60% 15%;
     --card: 0 0% 100%;
     --card-foreground: 210 60% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 210 60% 15%;
-    --primary: 210 60% 15%; /* Azul Marino Oscuro */
+    --primary: 210 60% 15%; /* Azul Marino */
     --primary-foreground: 0 0% 100%;
-    --secondary: 85 45% 45%; /* Verde Oliva / Hoja */
+    --secondary: 85 45% 45%; /* Verde Oliva */
     --secondary-foreground: 0 0% 100%;
     --muted: 210 20% 96%;
     --muted-foreground: 210 15% 45%;
-    --accent: 85 45% 45%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
     --border: 210 20% 90%;
     --input: 210 20% 90%;
     --ring: 210 60% 15%;

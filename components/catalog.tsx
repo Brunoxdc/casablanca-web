@@ -35,7 +35,7 @@ export function Catalog() {
         
         <div className="flex flex-col lg:flex-row justify-between items-end mb-12 border-b border-primary/20 pb-6">
           <div>
-            <h2 className="text-4xl md:text-5xl font-serif text-primary font-bold">
+            <h2 className="text-4xl md:text-5xl font-[family-name:var(--font-serif)] text-primary font-bold">
               Nuestros productos
             </h2>
           </div>
@@ -51,9 +51,12 @@ export function Catalog() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <div key={product.id} className="bg-white rounded-3xl p-6 shadow-sm flex flex-col items-center text-center">
-              <div className="w-full aspect-[4/5] bg-gradient-to-b from-[#e5ede6] to-white rounded-2xl mb-6 flex items-center justify-center p-4">
-                <span className="text-xs text-slate-400 font-medium">Sube: {product.filename}</span>
+            <div key={product.id} className="bg-white rounded-3xl p-6 shadow-sm flex flex-col items-center text-center border border-transparent hover:border-secondary/20 hover:shadow-md transition-all">
+              <div className="w-full aspect-[4/5] bg-gradient-to-b from-[#e5ede6] to-white rounded-2xl mb-6 flex items-center justify-center p-4 relative overflow-hidden">
+                {/* Texto temporal, cuando subas la foto se tapará automáticamente */}
+                <span className="text-xs text-slate-400 font-medium absolute z-0">Sube: {product.filename}</span>
+                {/* Imagen del producto */}
+                <img src={`/productos/${product.filename}`} alt={product.name} className="relative z-10 w-full h-full object-contain mix-blend-multiply" />
               </div>
               <h3 className="font-bold text-lg text-primary mb-2 leading-tight">{product.name}</h3>
               <p className="text-primary/70 text-sm mb-6 flex-1">{product.desc}</p>
