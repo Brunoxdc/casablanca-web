@@ -1,8 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/hero";
-import Benefits from "@/components/benefits";
+import Features from "@/components/features";
 import Catalog from "@/components/catalog";
-import Stats from "@/components/stats";
+import CtaBanner from "@/components/cta-banner";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -10,9 +10,9 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <Benefits />
+      <Features />
       <Catalog />
-      <Stats />
+      <CtaBanner />
       <Footer />
     </main>
   );

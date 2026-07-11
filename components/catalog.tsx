@@ -4,56 +4,59 @@ import { Button } from "@/components/ui/button";
 
 const products = [
   {
-    name: "Papel Higiénico",
-    detail: "Paquete de 4 rollos",
-    image: "/productos/papel-higienico.png",
-  },
-  {
-    name: "Papel Jumbo",
-    detail: "Rollo de 200 metros",
+    name: "Papel Jumbo Institucional",
+    detail: "Paquete de 6 rollos de 200 metros.",
     image: "/productos/papel-jumbo.png",
   },
   {
-    name: "Papel Toalla",
-    detail: "Institucional",
-    image: "/productos/papel-toalla.png",
+    name: "Papel Higiénico Black",
+    detail: "Plancha de 24 rollos de 40 metros.",
+    image: "/productos/papel-higienico.png",
   },
   {
-    name: "Servilletas",
-    detail: "Paquete de 500 unidades",
-    image: "/productos/servilletas.png",
+    name: "Papel Institucional Blanco",
+    detail: "Ideal para hogar, oficinas y negocios.",
+    image: "/productos/papel-institucional.png",
+  },
+  {
+    name: "Toalla Institucional y Dispensadores",
+    detail: "Resistente, absorbente y de alta calidad.",
+    image: "/productos/papel-toalla.png",
   },
 ];
 
 export default function Catalog() {
   return (
     <section id="productos" className="bg-white">
-      <div className="container py-16 md:py-20 text-center">
-        <span className="eyebrow">Nuestra línea</span>
-        <h2 className="mt-2 text-3xl md:text-[2.2rem] font-bold">
-          Productos Destacados
+      <div className="container mx-auto max-w-[1180px] px-6 py-16 md:py-20 text-center">
+        <h2 className="text-3xl md:text-[2.1rem] font-extrabold">
+          Nuestros Productos
         </h2>
-        <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-[var(--cb-teal-600)]" />
+        <p className="mt-2 text-[15px] text-[var(--cb-gray)]">
+          Opciones para cada necesidad, siempre con la mejor calidad.
+        </p>
 
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-5 text-left">
+        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-5 text-left">
           {products.map((product) => (
             <Card key={product.name}>
-              <CardContent className="flex flex-col items-center text-center gap-3">
-                <div className="relative h-32 w-full">
+              <CardContent className="flex flex-col gap-3 p-4">
+                <div className="relative h-36 w-full rounded-lg overflow-hidden bg-[var(--cb-teal-50)]">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-contain"
+                    className="object-contain p-3"
                   />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold">{product.name}</h3>
-                  <p className="text-sm text-[var(--cb-gray)] mt-0.5">
+                  <h3 className="text-[15px] font-bold leading-snug">
+                    {product.name}
+                  </h3>
+                  <p className="text-[13px] text-[var(--cb-gray)] mt-1 leading-snug">
                     {product.detail}
                   </p>
                 </div>
-                <Button className="w-full mt-1" variant="primary">
+                <Button variant="outline" className="w-full mt-1 text-sm">
                   Ver más
                 </Button>
               </CardContent>

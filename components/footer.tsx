@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 export default function Footer() {
   return (
     <footer id="nosotros" className="bg-[var(--cb-teal-900)] text-white">
-      <div className="container py-14 grid md:grid-cols-4 gap-10">
+      <div className="container mx-auto max-w-[1180px] px-6 py-14 grid md:grid-cols-4 gap-10">
         <div>
           <Image
             src="/logo.png"
@@ -36,10 +36,10 @@ export default function Footer() {
             Productos
           </h4>
           <ul className="mt-4 space-y-2.5 text-sm text-white/70">
-            <li>Papel Higiénico</li>
-            <li>Papel Jumbo</li>
-            <li>Papel Toalla</li>
-            <li>Servilletas</li>
+            <li>Papel Jumbo Institucional</li>
+            <li>Papel Higiénico Black</li>
+            <li>Papel Institucional Blanco</li>
+            <li>Toalla Institucional</li>
           </ul>
         </div>
 
@@ -54,15 +54,16 @@ export default function Footer() {
             <li className="flex items-center gap-2">
               <Mail size={16} /> ventas@casablanca.pe
             </li>
-            <li className="flex items-center gap-2">
-              <MapPin size={16} /> Lima, Perú
+            <li className="flex items-start gap-2">
+              <MapPin size={16} className="mt-0.5 shrink-0" />
+              Urb Luis Chala MzB-lote7A, San Vicente – Cañete
             </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container py-5 text-xs text-white/50 text-center">
+        <div className="container mx-auto max-w-[1180px] px-6 py-5 text-xs text-white/50 text-center">
           © {new Date().getFullYear()} Casa Blanca Papel Higiénico. Todos los
           derechos reservados.
         </div>
