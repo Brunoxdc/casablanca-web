@@ -1,70 +1,72 @@
-import { MapPin, Phone, Truck, Lock, Headset, Star } from "lucide-react"
+import Image from "next/image";
+import { Phone, Mail, MapPin } from "lucide-react";
 
-export function Footer() {
+export default function Footer() {
   return (
-    <footer className="w-full bg-[#f8faf8]">
-      {/* Banner CTA */}
-      <div className="container mx-auto px-4 pb-12">
-        <div className="bg-[#0f2a40] rounded-[2rem] p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-xl">
-          <div className="flex items-center gap-6 relative z-10">
-            <div className="h-20 w-20 rounded-full border-2 border-secondary flex items-center justify-center text-white flex-shrink-0 bg-white/5">
-               {/* Icono Papel SVG */}
-               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M4 18h10"/><path d="M4 22h10"/><path d="M10 2a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h6z"/><path d="M14 6h6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6"/></svg>
-            </div>
-            <div className="text-white">
-              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-serif)] font-bold italic mb-2">
-                ¡Elige calidad,<br/>elige <span className="text-secondary">Casa Blanca</span>!
-              </h2>
-              <p className="text-white/80">
-                Contáctanos y descubre la suavidad<br/>que tu familia merece.
-              </p>
-            </div>
-          </div>
-          
-          <div className="flex flex-col space-y-6 text-white relative z-10 w-full lg:w-auto">
-            <div className="flex items-center gap-4">
-              <Phone className="h-8 w-8 text-secondary fill-secondary" />
-              <span className="text-3xl font-bold">924 473 557</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <MapPin className="h-8 w-8 text-white" />
-              <div className="text-sm leading-tight">
-                <p className="font-medium">Urb Luis chala MzB-lote7A</p>
-                <p>San Vicente – cañete</p>
-              </div>
-            </div>
-          </div>
+    <footer id="nosotros" className="bg-[var(--cb-teal-900)] text-white">
+      <div className="container py-14 grid md:grid-cols-4 gap-10">
+        <div>
+          <Image
+            src="/logo.png"
+            alt="Casa Blanca"
+            width={150}
+            height={45}
+            className="h-10 w-auto object-contain brightness-0 invert"
+          />
+          <p className="mt-4 text-sm text-white/70 leading-relaxed max-w-xs">
+            Papel higiénico de alta calidad para hogares, empresas e
+            instituciones. Suavidad al mejor precio.
+          </p>
+        </div>
 
-          <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/3">
-             {/* Imagen del rollo que se asoma a la derecha */}
-             <img src="/productos/footer-rollo.png" alt="Papel Decorativo" className="w-full h-full object-cover object-left opacity-90" />
-          </div>
+        <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-white/90">
+            Navegación
+          </h4>
+          <ul className="mt-4 space-y-2.5 text-sm text-white/70">
+            <li><a href="#inicio" className="hover:text-white">Inicio</a></li>
+            <li><a href="#productos" className="hover:text-white">Productos</a></li>
+            <li><a href="#beneficios" className="hover:text-white">Beneficios</a></li>
+            <li><a href="#contacto" className="hover:text-white">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-white/90">
+            Productos
+          </h4>
+          <ul className="mt-4 space-y-2.5 text-sm text-white/70">
+            <li>Papel Higiénico</li>
+            <li>Papel Jumbo</li>
+            <li>Papel Toalla</li>
+            <li>Servilletas</li>
+          </ul>
+        </div>
+
+        <div id="contacto">
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-white/90">
+            Contacto
+          </h4>
+          <ul className="mt-4 space-y-3 text-sm text-white/70">
+            <li className="flex items-center gap-2">
+              <Phone size={16} /> 924 473 557
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail size={16} /> ventas@casablanca.pe
+            </li>
+            <li className="flex items-center gap-2">
+              <MapPin size={16} /> Lima, Perú
+            </li>
+          </ul>
         </div>
       </div>
 
-      {/* Footer Features Bar */}
-      <div className="bg-[#0f2a40] text-white py-8 border-t-4 border-secondary">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-center md:text-left md:divide-x divide-white/20">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-3 px-4">
-              <Truck className="h-6 w-6 text-secondary" />
-              <span className="leading-tight font-medium tracking-wide">Entrega rápida<br/>y segura</span>
-            </div>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-3 px-4">
-              <Lock className="h-6 w-6 text-secondary" />
-              <span className="leading-tight font-medium tracking-wide">Pagos seguros</span>
-            </div>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-3 px-4">
-              <Headset className="h-6 w-6 text-secondary" />
-              <span className="leading-tight font-medium tracking-wide">Atención<br/>personalizada</span>
-            </div>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-3 px-4">
-              <Star className="h-6 w-6 text-secondary" />
-              <span className="leading-tight font-medium tracking-wide">Productos de<br/>alta calidad</span>
-            </div>
-          </div>
+      <div className="border-t border-white/10">
+        <div className="container py-5 text-xs text-white/50 text-center">
+          © {new Date().getFullYear()} Casa Blanca Papel Higiénico. Todos los
+          derechos reservados.
         </div>
       </div>
     </footer>
-  )
+  );
 }

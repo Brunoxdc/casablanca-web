@@ -1,20 +1,19 @@
-import { Hero } from "@/components/hero"
-import { Benefits } from "@/components/benefits"
-import { Catalog } from "@/components/catalog"
-import { Footer } from "@/components/footer"
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/hero";
+import Benefits from "@/components/benefits";
+import Catalog from "@/components/catalog";
+import Stats from "@/components/stats";
+import Footer from "@/components/footer";
 
-export const metadata = {
-  title: "Casa Blanca | Suavidad al mejor precio",
-  description: "Papel higiénico de alta calidad para cada momento de tu día.",
-}
-
-export default function Page() {
+export default function Home() {
   return (
-    <main className="bg-background font-sans overflow-hidden">
+    <main>
+      <Navbar />
       <Hero />
       <Benefits />
       <Catalog />
+      <Stats />
       <Footer />
     </main>
-  )
+  );
 }
