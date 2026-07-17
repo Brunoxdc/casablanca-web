@@ -10,9 +10,9 @@ const whatsappIcon = (
 export default function Hero() {
   return (
     <section id="inicio" className="bg-white">
-      <div className="container mx-auto max-w-[1180px] px-6 grid md:grid-cols-2 gap-10 items-center py-14 md:py-16">
+      <div className="container mx-auto max-w-[1180px] px-6 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center py-12 lg:py-14">
         <div>
-          <h1 className="text-[2.6rem] md:text-[3.1rem] leading-[1.1] font-extrabold tracking-tight">
+          <h1 className="text-[2.5rem] sm:text-[2.9rem] lg:text-[2.5rem] xl:text-[2.8rem] leading-[1.1] font-extrabold tracking-tight">
             <span className="block text-[var(--cb-navy-900)]">
               Papel higiénico por mayor
             </span>
@@ -53,7 +53,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="relative flex justify-center md:justify-end">
+        <div className="relative flex justify-center lg:justify-end">
           <Image
             src="/producto-hero.png"
             alt="Rollos de papel higiénico Casa Blanca"
@@ -62,7 +62,7 @@ export default function Hero() {
             className="w-full max-w-[480px] h-auto rounded-2xl object-cover"
             priority
           />
-          <div className="absolute -top-4 right-4 md:right-0 flex h-28 w-28 flex-col items-center justify-center gap-1 rounded-full bg-white p-3 text-center shadow-lg">
+          <div className="absolute -top-4 right-4 lg:right-0 flex h-28 w-28 flex-col items-center justify-center gap-1 rounded-full bg-white p-3 text-center shadow-lg">
             <Leaf size={18} className="text-[var(--cb-green-600)]" />
             <p className="text-[11px] font-bold leading-tight text-[var(--cb-navy-900)]">
               CALIDAD QUE SE SIENTE EN CADA USO

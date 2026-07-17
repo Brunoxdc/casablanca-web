@@ -21,15 +21,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-[var(--cb-border)]">
-      <div className="container mx-auto max-w-[1180px] px-6 flex items-center justify-between h-[84px]">
+    <header className="sticky top-0 z-50 w-full bg-[var(--cb-navy-900)]">
+      <div className="container mx-auto max-w-[1180px] px-6 flex items-center justify-between h-[92px]">
         <a href="#inicio" className="flex items-center gap-2 shrink-0">
           <Image
-            src="/logo.png"
+            src="/logo-white.png"
             alt="Casa Blanca - Papel Higiénico"
-            width={170}
-            height={54}
-            className="h-12 w-auto object-contain"
+            width={220}
+            height={70}
+            className="h-16 w-auto object-contain"
             priority
           />
         </a>
@@ -39,10 +39,10 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-[13px] font-semibold tracking-wide transition-colors ${
+              className={`text-[13px] font-semibold tracking-wide pb-1 transition-colors ${
                 i === 0
-                  ? "text-[var(--cb-navy-800)] border-b-2 border-[var(--cb-navy-800)] pb-1"
-                  : "text-[var(--cb-ink)] hover:text-[var(--cb-navy-800)]"
+                  ? "text-[var(--cb-green-600)] border-b-2 border-[var(--cb-green-600)]"
+                  : "text-white/90 border-b-2 border-transparent hover:text-white"
               }`}
             >
               {link.label}
@@ -61,7 +61,7 @@ export default function Navbar() {
         </a>
 
         <button
-          className="lg:hidden p-2 text-[var(--cb-ink)]"
+          className="lg:hidden p-2 text-white"
           onClick={() => setOpen((v) => !v)}
           aria-label="Abrir menú"
           aria-expanded={open}
@@ -71,14 +71,14 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-[var(--cb-border)] bg-white">
+        <div className="lg:hidden border-t border-white/10 bg-[var(--cb-navy-900)]">
           <nav className="px-6 flex flex-col py-4 gap-1">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="py-2.5 text-sm font-semibold text-[var(--cb-ink)]"
+                className="py-2.5 text-sm font-semibold text-white/90 hover:text-white"
               >
                 {link.label}
               </a>

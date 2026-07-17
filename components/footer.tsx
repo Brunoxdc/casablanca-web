@@ -4,14 +4,14 @@ import { Mail, MapPin, Phone } from "lucide-react";
 export default function Footer() {
   return (
     <footer id="nosotros" className="bg-[var(--cb-navy-900)] text-white">
-      <div className="container mx-auto max-w-[1180px] px-6 py-14 grid md:grid-cols-4 gap-10">
+      <div className="container mx-auto max-w-[1180px] px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <Image
-            src="/logo.png"
+            src="/logo-white.png"
             alt="Casa Blanca"
             width={150}
             height={45}
-            className="h-10 w-auto object-contain brightness-0 invert"
+            className="h-10 w-auto object-contain"
           />
           <p className="mt-4 text-sm text-white/70 leading-relaxed max-w-xs">
             Papel higiénico institucional con calidad constante y atención

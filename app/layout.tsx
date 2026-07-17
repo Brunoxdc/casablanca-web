@@ -4,7 +4,7 @@ import "./globals.css";
 
 const heading = Poppins({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-heading",
 });
 

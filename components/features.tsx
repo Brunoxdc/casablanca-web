@@ -26,16 +26,11 @@ const features = [
 export default function Features() {
   return (
     <section id="beneficios" className="bg-[var(--cb-navy-900)]">
-      <div className="container mx-auto max-w-[1180px] px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-        {features.map(({ icon: Icon, title, desc }, i) => (
-          <div
-            key={title}
-            className={`flex flex-col items-center text-center gap-3 px-2 ${
-              i > 0 ? "md:border-l md:border-white/20" : ""
-            }`}
-          >
-            <Icon size={30} className="text-white" strokeWidth={1.8} />
-            <h3 className="text-[13px] font-bold text-white tracking-wide leading-snug">
+      <div className="container mx-auto max-w-[1180px] px-6 py-12 grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-6">
+        {features.map(({ icon: Icon, title, desc }) => (
+          <div key={title} className="flex flex-col items-center text-center gap-3 px-2">
+            <Icon size={34} className="text-white" strokeWidth={1.6} />
+            <h3 className="text-sm font-bold text-white tracking-wide leading-snug">
               {title}
             </h3>
             <p className="text-[13px] text-white/80 leading-snug">{desc}</p>

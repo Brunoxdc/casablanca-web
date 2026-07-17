@@ -51,7 +51,7 @@ export default function QuoteForm() {
   return (
     <section id="contacto" className="bg-white">
       <div className="container mx-auto max-w-[1180px] px-6 py-16 md:py-20">
-        <div className="rounded-2xl border border-[var(--cb-border)] bg-[var(--cb-beige-50)] p-6 md:p-10 grid md:grid-cols-[1fr_1.3fr] gap-10">
+        <div className="rounded-2xl border border-[var(--cb-border)] bg-[var(--cb-beige-50)] p-6 md:p-10 grid lg:grid-cols-[1fr_1.3fr] gap-10">
           <div>
             <span className="eyebrow">Cotización rápida</span>
             <h2 className="mt-2 text-2xl md:text-[1.9rem] font-extrabold leading-tight text-[var(--cb-navy-900)]">
