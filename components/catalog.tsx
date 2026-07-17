@@ -1,26 +1,28 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 const products = [
   {
     name: "Papel Jumbo Institucional",
-    detail: "Paquete de 6 rollos de 200 metros.",
+    detail:
+      "Alta capacidad y rendimiento. Ideal para oficinas, hoteles, clínicas y centros comerciales.",
     image: "/productos/papel-jumbo.png",
   },
   {
     name: "Papel Higiénico Black",
-    detail: "Plancha de 24 rollos de 40 metros.",
+    detail:
+      "Suavidad y resistencia con celulosa virgen. Higiene y economía para tu negocio.",
     image: "/productos/papel-higienico.png",
   },
   {
     name: "Papel Institucional Blanco",
-    detail: "Ideal para hogar, oficinas y negocios.",
+    detail:
+      "Calidad y rendimiento para oficinas, instituciones, restaurantes y más.",
     image: "/productos/papel-institucional.png",
   },
   {
     name: "Toalla Institucional y Dispensadores",
-    detail: "Resistente, absorbente y de alta calidad.",
+    detail: "Soluciones completas de higiene para tu empresa.",
     image: "/productos/papel-toalla.png",
   },
 ];
@@ -28,19 +30,21 @@ const products = [
 export default function Catalog() {
   return (
     <section id="productos" className="bg-white">
-      <div className="container mx-auto max-w-[1180px] px-6 py-16 md:py-20 text-center">
-        <h2 className="text-3xl md:text-[2.1rem] font-extrabold">
-          Nuestros Productos
+      <div className="container mx-auto max-w-[1180px] px-6 py-16 md:py-20">
+        <h2 className="text-3xl md:text-[2.1rem] font-extrabold text-[var(--cb-navy-900)]">
+          Nuestros productos
         </h2>
-        <p className="mt-2 text-[15px] text-[var(--cb-gray)]">
-          Opciones para cada necesidad, siempre con la mejor calidad.
+        <div className="mt-2 h-1 w-14 rounded-full bg-[var(--cb-green-600)]" />
+        <p className="mt-4 text-[15px] text-[var(--cb-gray)] max-w-xl">
+          Soluciones institucionales listas para abastecer tu operación sin
+          exceso de información ni pasos innecesarios.
         </p>
 
         <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-5 text-left">
           {products.map((product) => (
             <Card key={product.name}>
               <CardContent className="flex flex-col gap-3 p-4">
-                <div className="relative h-36 w-full rounded-lg overflow-hidden bg-[var(--cb-teal-50)]">
+                <div className="relative h-36 w-full rounded-lg overflow-hidden bg-[var(--cb-green-50)]">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -49,16 +53,19 @@ export default function Catalog() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-[15px] font-bold leading-snug">
+                  <h3 className="text-[15px] font-bold leading-snug text-[var(--cb-navy-900)]">
                     {product.name}
                   </h3>
                   <p className="text-[13px] text-[var(--cb-gray)] mt-1 leading-snug">
                     {product.detail}
                   </p>
                 </div>
-                <Button variant="outline" className="w-full mt-1 text-sm">
-                  Ver más
-                </Button>
+                <a
+                  href="#contacto"
+                  className="mt-1 inline-flex w-full items-center justify-center rounded-full border-2 border-[var(--cb-navy-800)] px-4 py-2 text-sm font-semibold text-[var(--cb-navy-800)] hover:bg-[var(--cb-navy-50)] transition-colors"
+                >
+                  Cotizar
+                </a>
               </CardContent>
             </Card>
           ))}

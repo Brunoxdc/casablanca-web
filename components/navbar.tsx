@@ -11,6 +11,11 @@ const links = [
   { label: "NOSOTROS", href: "#nosotros" },
   { label: "CONTACTO", href: "#contacto" },
 ];
+const whatsappIcon = (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+    <path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm0 21.8c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-3.9 1 1-3.8-.2-.4C2.2 15.4 1.8 13.7 1.8 12 1.8 6.4 6.4 1.8 12 1.8S22.2 6.4 22.2 12 17.6 21.8 12 21.8z" />
+  </svg>
+);
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -36,8 +41,8 @@ export default function Navbar() {
               href={link.href}
               className={`text-[13px] font-semibold tracking-wide transition-colors ${
                 i === 0
-                  ? "text-[var(--cb-teal-700)] border-b-2 border-[var(--cb-teal-700)] pb-1"
-                  : "text-[var(--cb-ink)] hover:text-[var(--cb-teal-700)]"
+                  ? "text-[var(--cb-navy-800)] border-b-2 border-[var(--cb-navy-800)] pb-1"
+                  : "text-[var(--cb-ink)] hover:text-[var(--cb-navy-800)]"
               }`}
             >
               {link.label}
@@ -49,11 +54,9 @@ export default function Navbar() {
           href="https://wa.me/51924473557"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center gap-2 rounded-full bg-[#25b06a] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[#1f9a5c] transition-colors"
+          className="hidden lg:inline-flex items-center gap-2 rounded-full bg-[var(--cb-green-600)] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[var(--cb-green-700)] transition-colors"
         >
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-            <path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm0 21.8c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-3.9 1 1-3.8-.2-.4C2.2 15.4 1.8 13.7 1.8 12 1.8 6.4 6.4 1.8 12 1.8S22.2 6.4 22.2 12 17.6 21.8 12 21.8z" />
-          </svg>
+          {whatsappIcon}
           924 473 557
         </a>
 
@@ -84,8 +87,9 @@ export default function Navbar() {
               href="https://wa.me/51924473557"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#25b06a] text-white px-5 py-3 text-sm font-semibold"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--cb-green-600)] text-white px-5 py-3 text-sm font-semibold"
             >
+              {whatsappIcon}
               924 473 557
             </a>
           </nav>

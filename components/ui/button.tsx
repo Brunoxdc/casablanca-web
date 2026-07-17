@@ -12,10 +12,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-[var(--cb-teal-700)] text-white hover:bg-[var(--cb-teal-800)]",
+    "bg-[var(--cb-green-600)] text-white hover:bg-[var(--cb-green-700)]",
   outline:
-    "border-2 border-[var(--cb-teal-700)] text-[var(--cb-teal-700)] hover:bg-[var(--cb-teal-50)]",
-  ghost: "text-[var(--cb-teal-700)] hover:bg-[var(--cb-teal-50)]",
+    "border-2 border-[var(--cb-navy-800)] text-[var(--cb-navy-800)] hover:bg-[var(--cb-navy-50)]",
+  ghost: "text-[var(--cb-navy-800)] hover:bg-[var(--cb-navy-50)]",
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

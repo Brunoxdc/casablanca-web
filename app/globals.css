@@ -1,20 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  /* Paleta Casa Blanca */
-  --cb-teal-900: #0b4a54;
-  --cb-teal-800: #0d5f6b;
-  --cb-teal-700: #10707d;
-  --cb-teal-600: #14818f;
-  --cb-teal-500: #1a95a3;
-  --cb-teal-100: #e6f5f6;
-  --cb-teal-50: #f2fafb;
+  /* Paleta Casa Blanca (institucional B2B) */
+  --cb-navy-900: #0d2b4a;
+  --cb-navy-800: #123655;
+  --cb-navy-700: #17436a;
+  --cb-navy-600: #1c4f7d;
+  --cb-navy-50: #eef2f6;
+
+  --cb-green-700: #547a2c;
+  --cb-green-600: #6c9a3c;
+  --cb-green-100: #e9f2dd;
+  --cb-green-50: #f5f8ef;
 
   --cb-ink: #16262b;
   --cb-gray: #5b6b70;
   --cb-gray-light: #94a3a6;
   --cb-white: #ffffff;
-  --cb-border: #e3eeef;
+  --cb-border: #e3e8ec;
+  --cb-beige-50: #f7f3ea;
 
   --cb-radius: 14px;
   --cb-radius-full: 999px;
@@ -63,13 +67,13 @@ a {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cb-teal-600);
+  color: var(--cb-green-700);
 }
 
 /* Foco de teclado visible (accesibilidad) */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--cb-teal-600);
+  outline: 2px solid var(--cb-navy-600);
   outline-offset: 3px;
   border-radius: 6px;
 }
