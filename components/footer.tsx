@@ -22,7 +22,7 @@ const InstagramIcon = () => (
 export default function Footer() {
   return (
     <footer className="bg-[var(--color-footer-bg)] text-[var(--color-footer-text)]">
-      <div className="container py-16 grid md:grid-cols-2 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.2fr] gap-12">
+      <div className="container py-20 grid md:grid-cols-2 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.2fr] gap-14">
         <div>
           <Image
             src="/logo-white.png"

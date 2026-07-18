@@ -20,7 +20,7 @@ const links = [
 // blanca del logo (pensada para fondos oscuros) es la que corresponde.
 const LOGO_SRC = "/logo-white.png";
 
-const HEADER_HEIGHT = 86;
+const HEADER_HEIGHT = 92;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -47,43 +47,46 @@ export default function Navbar() {
         className="container flex items-center justify-between"
         style={{ height: HEADER_HEIGHT }}
       >
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center shrink-0">
           <Image
             src={LOGO_SRC}
             alt="Casa Blanca - Papel Higiénico"
-            width={190}
-            height={60}
-            className="h-11 sm:h-12 w-auto object-contain"
+            width={300}
+            height={96}
+            className="h-[68px] sm:h-[76px] w-auto object-contain"
             priority
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-9">
-          {links.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group relative py-1.5 text-[15px] font-medium tracking-[0.01em] text-white/90 transition-colors hover:text-white"
-              >
-                {link.label}
-                <span
-                  className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-white transition-all duration-300 ease-[var(--ease)] ${
-                    active ? "w-full" : "w-0 group-hover:w-full"
+        <div className="hidden lg:flex items-center gap-10">
+          <nav className="flex items-center gap-1">
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`group relative rounded-[var(--radius-pill)] px-4 py-2 text-[15px] font-medium tracking-[0.01em] transition-colors ${
+                    active ? "text-white" : "text-white/85 hover:text-white"
                   }`}
-                />
-              </Link>
-            );
-          })}
-        </nav>
+                >
+                  <span
+                    className={`absolute inset-0 rounded-[var(--radius-pill)] bg-white/10 transition-transform duration-300 ease-[var(--ease)] ${
+                      active
+                        ? "scale-100 opacity-100"
+                        : "scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+                    }`}
+                  />
+                  <span className="relative">{link.label}</span>
+                </Link>
+              );
+            })}
+          </nav>
 
-        <Link
-          href="/contacto"
-          className={buttonVariants({ variant: "primary", className: "hidden lg:inline-flex" })}
-        >
-          Solicitar cotización
-        </Link>
+          <Link href="/contacto" className={buttonVariants({ variant: "primary" })}>
+            Solicitar cotización
+          </Link>
+        </div>
 
         <button
           className="lg:hidden p-2 text-white"

@@ -14,7 +14,7 @@
   --color-accent-50: #eef8ee;
 
   --color-white: #ffffff;
-  --color-surface: #f6f8fa;
+  --color-surface: #f8fafc;
   --color-surface-alt: #eef2f4;
 
   --color-text: #1f2937;
@@ -28,8 +28,8 @@
   --color-footer-heading: rgba(255, 255, 255, 0.95);
 
   /* Spacing rhythm */
-  --space-section: clamp(5.5rem, 9vw, 8.75rem);
-  --space-section-sm: clamp(3.5rem, 6vw, 5.5rem);
+  --space-section: clamp(7rem, 10vw, 11rem);
+  --space-section-sm: clamp(4rem, 7vw, 6.5rem);
 
   /* Radius */
   --radius-sm: 10px;
