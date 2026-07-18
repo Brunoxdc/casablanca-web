@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 type Tone = "primary" | "accent" | "neutral";
 
 const toneClasses: Record<Tone, string> = {
-  primary: "bg-[var(--color-primary-50)] text-[var(--color-primary-dark)]",
+  primary: "bg-[var(--color-surface)] text-[var(--color-primary-dark)]",
   accent: "bg-[var(--color-accent-50)] text-[var(--color-accent-dark)]",
   neutral: "bg-[var(--color-surface-alt)] text-[var(--color-text-muted)]",
 };

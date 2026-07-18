@@ -3,11 +3,12 @@
 :root {
   /* ============ Design tokens — Casa Blanca ============ */
 
-  /* Color — azul corporativo oscuro como color dominante de marca */
-  --color-primary: #006b8f;
+  /* Color — un único azul corporativo, sin variantes.
+     --color-primary y --color-primary-dark son intencionalmente el mismo
+     valor: existen como dos nombres por compatibilidad con el codigo, pero
+     nunca deben diverger. Header, footer, CTA y titulos salen todos de aqui. */
+  --color-primary: #005f86;
   --color-primary-dark: #005f86;
-  --color-primary-50: #e6eef2;
-  --color-primary-100: #ccdde6;
 
   --color-accent: #5cb85c;
   --color-accent-dark: #4a9d4a;
@@ -15,7 +16,7 @@
 
   --color-white: #ffffff;
   --color-surface: #f8fafc;
-  --color-surface-alt: #eef2f4;
+  --color-surface-alt: #f8fafc;
 
   --color-text: #1f2937;
   --color-text-muted: #5b6b76;
@@ -23,13 +24,12 @@
 
   --color-border: #e2e8ef;
 
-  --color-footer-bg: #00374b;
   --color-footer-text: rgba(255, 255, 255, 0.72);
   --color-footer-heading: rgba(255, 255, 255, 0.95);
 
   /* Spacing rhythm */
-  --space-section: clamp(7rem, 10vw, 11rem);
-  --space-section-sm: clamp(4rem, 7vw, 6.5rem);
+  --space-section: clamp(90px, 8vw, 120px);
+  --space-section-sm: clamp(64px, 6vw, 88px);
 
   /* Radius */
   --radius-sm: 10px;
@@ -82,9 +82,9 @@ html {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 /* Deja espacio para la barra de conversión fija en mobile */

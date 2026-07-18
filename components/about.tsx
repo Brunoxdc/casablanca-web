@@ -36,7 +36,7 @@ export default function About() {
         <div className="grid sm:grid-cols-2 gap-6">
           <Reveal delay={100}>
             <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] p-7">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-primary-50)]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-surface)]">
                 <Target size={20} className="text-[var(--color-primary-dark)]" />
               </div>
               <h2 className="mt-4 text-lg font-bold text-[var(--color-text)]">
@@ -51,7 +51,7 @@ export default function About() {
           </Reveal>
           <Reveal delay={180}>
             <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] p-7">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-primary-50)]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-surface)]">
                 <Eye size={20} className="text-[var(--color-primary-dark)]" />
               </div>
               <h2 className="mt-4 text-lg font-bold text-[var(--color-text)]">

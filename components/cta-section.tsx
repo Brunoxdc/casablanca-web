@@ -14,7 +14,7 @@ const whatsappIcon = (
 export default function CtaSection() {
   return (
     <Section
-      bg="gradient"
+      bg="brand"
       containerClassName="grid lg:grid-cols-[1.3fr_1fr] gap-14 items-center overflow-visible"
     >
       <Reveal>

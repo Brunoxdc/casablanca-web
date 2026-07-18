@@ -55,7 +55,7 @@ export default function ContactPage() {
                   : {})}
                 className="block rounded-[var(--radius-lg)] border border-[var(--color-border)] p-6 transition-colors hover:border-[var(--color-primary)]"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary-50)] text-[var(--color-primary-dark)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-surface)] text-[var(--color-primary-dark)]">
                   {channel.icon}
                 </div>
                 <h2 className="mt-4 text-sm font-bold uppercase tracking-wide text-[var(--color-text)]">

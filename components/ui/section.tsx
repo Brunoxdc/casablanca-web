@@ -1,14 +1,13 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-type Bg = "white" | "surface" | "gradient" | "dark";
+type Bg = "white" | "surface" | "brand";
 
 const bgClasses: Record<Bg, string> = {
   white: "bg-white",
   surface: "bg-[var(--color-surface)]",
-  gradient:
-    "bg-[linear-gradient(135deg,var(--color-primary)_0%,var(--color-primary-dark)_100%)] text-white",
-  dark: "bg-[var(--color-footer-bg)] text-white",
+  // Azul corporativo solido — el mismo tono que header y footer, sin degradado.
+  brand: "bg-[var(--color-primary)] text-white",
 };
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {

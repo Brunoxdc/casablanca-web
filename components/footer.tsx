@@ -21,15 +21,15 @@ const InstagramIcon = () => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-footer-bg)] text-[var(--color-footer-text)]">
+    <footer className="bg-[var(--color-primary)] text-[var(--color-footer-text)]">
       <div className="container py-20 grid md:grid-cols-2 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.2fr] gap-14">
         <div>
           <Image
             src="/logo-white.png"
             alt="Casa Blanca"
-            width={160}
-            height={50}
-            className="h-11 w-auto object-contain"
+            width={300}
+            height={96}
+            className="h-16 w-auto object-contain"
           />
           <p className="mt-5 text-sm leading-relaxed max-w-xs">
             Papel higiénico institucional con calidad constante y atención
