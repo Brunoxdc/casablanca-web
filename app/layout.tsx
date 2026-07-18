@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { Poppins, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const heading = Poppins({
@@ -11,6 +11,12 @@ const heading = Poppins({
 const body = Inter({
   subsets: ["latin"],
   variable: "--font-body",
+});
+
+const heroSerif = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-hero-serif",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${heading.variable} ${body.variable}`}>
+      <body className={`${heading.variable} ${body.variable} ${heroSerif.variable}`}>
         {children}
       </body>
     </html>

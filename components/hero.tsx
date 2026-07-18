@@ -12,7 +12,10 @@ export default function Hero() {
     <section id="inicio" className="bg-white">
       <div className="container mx-auto max-w-[1180px] px-6 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center py-12 lg:py-14">
         <div>
-          <h1 className="text-[2.5rem] sm:text-[2.9rem] lg:text-[2.5rem] xl:text-[2.8rem] leading-[1.1] font-extrabold tracking-tight">
+          <h1
+            className="text-[2.5rem] sm:text-[2.9rem] lg:text-[2.5rem] xl:text-[2.8rem] leading-[1.1] font-extrabold tracking-tight"
+            style={{ fontFamily: "var(--font-hero-serif)" }}
+          >
             <span className="block text-[var(--cb-navy-900)]">
               Papel higiénico por mayor
             </span>
@@ -53,15 +56,32 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="relative flex justify-center lg:justify-end">
-          <Image
-            src="/producto-hero.png"
-            alt="Rollos de papel higiénico Casa Blanca"
-            width={520}
-            height={460}
-            className="w-full max-w-[480px] h-auto rounded-2xl object-cover"
-            priority
-          />
+        <div className="relative isolate flex justify-center lg:justify-end">
+          <svg
+            className="absolute bottom-0 -left-10 h-40 w-56 text-[var(--cb-green-600)] -z-10"
+            viewBox="0 0 200 160"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M0,60 C40,10 120,0 160,40 C200,80 180,140 120,150 C60,160 -20,120 0,60 Z" />
+          </svg>
+          <div className="relative w-full max-w-[480px]">
+            <Image
+              src="/producto-hero.png"
+              alt="Rollos de papel higiénico Casa Blanca"
+              width={520}
+              height={460}
+              className="w-full h-auto rounded-2xl object-cover"
+              priority
+            />
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, transparent 45%, rgba(255,255,255,0.55) 75%, #fff 100%)",
+              }}
+            />
+          </div>
           <div className="absolute -top-4 right-4 lg:right-0 flex h-28 w-28 flex-col items-center justify-center gap-1 rounded-full bg-white p-3 text-center shadow-lg">
             <Leaf size={18} className="text-[var(--cb-green-600)]" />
             <p className="text-[11px] font-bold leading-tight text-[var(--cb-navy-900)]">
