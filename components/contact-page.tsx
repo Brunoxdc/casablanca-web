@@ -1,5 +1,8 @@
 import { Clock, Mail, MapPin } from "lucide-react";
 import QuoteFormFields from "@/components/quote-form-fields";
+import { Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { Reveal } from "@/components/ui/reveal";
 
 const whatsappIcon = (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -33,59 +36,52 @@ const channels = [
 
 export default function ContactPage() {
   return (
-    <section className="bg-white">
-      <div className="container mx-auto max-w-[1180px] px-6 py-16 md:py-20">
-        <span className="eyebrow">Contáctanos</span>
-        <h1 className="mt-2 text-3xl md:text-[2.1rem] font-extrabold text-[var(--cb-navy-900)]">
-          Hablemos de tu próximo pedido
-        </h1>
-        <div className="mt-2 h-1 w-14 rounded-full bg-[var(--cb-green-600)]" />
-        <p className="mt-4 text-[15px] text-[var(--cb-gray)] max-w-xl">
-          Elige el canal que prefieras o llena el formulario — te
-          respondemos con disponibilidad, presentación y condiciones para
-          compra corporativa.
-        </p>
+    <Section bg="white">
+      <SectionHeading
+        as="h1"
+        eyebrow="Contáctanos"
+        title="Hablemos de tu próximo pedido"
+        subtitle="Elige el canal que prefieras o llena el formulario — te respondemos con disponibilidad y condiciones para compra corporativa."
+      />
 
-        <div className="mt-10 grid sm:grid-cols-3 gap-5">
-          {channels.map((channel) => {
-            const Wrapper = channel.href ? "a" : "div";
-            return (
+      <div className="mt-12 grid sm:grid-cols-3 gap-5">
+        {channels.map((channel, i) => {
+          const Wrapper = channel.href ? "a" : "div";
+          return (
+            <Reveal key={channel.title} delay={i * 90}>
               <Wrapper
-                key={channel.title}
                 {...(channel.href
-                  ? {
-                      href: channel.href,
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                    }
+                  ? { href: channel.href, target: "_blank", rel: "noopener noreferrer" }
                   : {})}
-                className="rounded-2xl border border-[var(--cb-border)] p-5 hover:border-[var(--cb-green-600)] transition-colors"
+                className="block rounded-[var(--radius-lg)] border border-[var(--color-border)] p-6 transition-colors hover:border-[var(--color-primary)]"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--cb-green-100)] text-[var(--cb-green-700)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary-50)] text-[var(--color-primary-dark)]">
                   {channel.icon}
                 </div>
-                <h2 className="mt-3 text-sm font-bold uppercase tracking-wide text-[var(--cb-navy-900)]">
+                <h2 className="mt-4 text-sm font-bold uppercase tracking-wide text-[var(--color-text)]">
                   {channel.title}
                 </h2>
-                <p className="mt-1 text-[15px] font-semibold text-[var(--cb-ink)]">
+                <p className="mt-1 text-[15px] font-semibold text-[var(--color-text)]">
                   {channel.detail}
                 </p>
-                <p className="mt-1 text-xs text-[var(--cb-gray)]">{channel.sub}</p>
+                <p className="mt-1 text-xs text-[var(--color-text-muted)]">{channel.sub}</p>
               </Wrapper>
-            );
-          })}
-        </div>
+            </Reveal>
+          );
+        })}
+      </div>
 
-        <div className="mt-6 flex items-center gap-2 text-sm text-[var(--cb-gray)]">
-          <Clock size={16} className="text-[var(--cb-green-600)]" />
-          Atención lunes a sábado, 8:00 a.m. – 6:00 p.m.
-        </div>
+      <div className="mt-6 flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
+        <Clock size={16} className="text-[var(--color-primary)]" />
+        Atención lunes a sábado, 8:00 a.m. – 6:00 p.m.
+      </div>
 
-        <div className="mt-12 rounded-2xl border border-[var(--cb-border)] bg-[var(--cb-beige-50)] p-6 md:p-10">
-          <h2 className="text-lg font-bold text-[var(--cb-navy-900)]">
+      <Reveal delay={200}>
+        <div className="mt-14 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-10">
+          <h2 className="text-lg font-bold text-[var(--color-text)]">
             Cuéntanos qué necesitas
           </h2>
-          <p className="mt-1 text-sm text-[var(--cb-gray)]">
+          <p className="mt-1 text-sm text-[var(--color-text-muted)]">
             Al enviar el formulario se abre WhatsApp con tu mensaje listo
             para confirmar.
           </p>
@@ -93,7 +89,7 @@ export default function ContactPage() {
             <QuoteFormFields className="grid gap-4" />
           </div>
         </div>
-      </div>
-    </section>
+      </Reveal>
+    </Section>
   );
 }

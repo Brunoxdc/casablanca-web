@@ -3,67 +3,87 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 
 const links = [
-  { label: "INICIO", href: "/" },
-  { label: "PRODUCTOS", href: "/productos" },
-  { label: "NOSOTROS", href: "/nosotros" },
-  { label: "CONTACTO", href: "/contacto" },
+  { label: "Inicio", href: "/" },
+  { label: "Productos", href: "/productos" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Contacto", href: "/contacto" },
 ];
-const whatsappIcon = (
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
-  </svg>
-);
+
+// Único punto de reemplazo del logo: cambiar el archivo alcanza, no hay
+// lógica de variantes claro/oscuro todavía (se agrega el día que haga falta).
+// El header siempre usa el color corporativo de fondo, así que la versión
+// blanca del logo (pensada para fondos oscuros) es la que corresponde.
+const LOGO_SRC = "/logo-white.png";
+
+const HEADER_HEIGHT = 86;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 16);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--cb-navy-900)]">
-      <div className="container mx-auto max-w-[1180px] px-6 flex items-center justify-between h-[104px]">
+    <>
+    <header
+      className={`fixed top-0 z-50 w-full bg-[var(--color-primary-dark)] transition-shadow duration-300 ease-[var(--ease)] ${
+        scrolled ? "shadow-[0_8px_24px_rgba(0,0,0,0.12)]" : "shadow-none"
+      }`}
+    >
+      <div
+        className="container flex items-center justify-between"
+        style={{ height: HEADER_HEIGHT }}
+      >
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
-            src="/logo-white.png"
+            src={LOGO_SRC}
             alt="Casa Blanca - Papel Higiénico"
-            width={260}
-            height={82}
-            className="h-20 w-auto object-contain"
+            width={190}
+            height={60}
+            className="h-11 sm:h-12 w-auto object-contain"
             priority
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-11">
+        <nav className="hidden lg:flex items-center gap-9">
           {links.map((link) => {
             const active = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[13px] font-semibold tracking-wide pb-1 transition-colors ${
-                  active
-                    ? "text-[var(--cb-green-600)] border-b-2 border-[var(--cb-green-600)]"
-                    : "text-white/90 border-b-2 border-transparent hover:text-white"
-                }`}
+                className="group relative py-1.5 text-[15px] font-medium tracking-[0.01em] text-white/90 transition-colors hover:text-white"
               >
                 {link.label}
+                <span
+                  className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-white transition-all duration-300 ease-[var(--ease)] ${
+                    active ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
               </Link>
             );
           })}
         </nav>
 
-        <a
-          href="https://wa.me/51924473557"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center gap-2 rounded-full bg-[var(--cb-green-600)] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[var(--cb-green-700)] transition-colors"
+        <Link
+          href="/contacto"
+          className={buttonVariants({ variant: "primary", className: "hidden lg:inline-flex" })}
         >
-          {whatsappIcon}
-          924 473 557
-        </a>
+          Solicitar cotización
+        </Link>
 
         <button
           className="lg:hidden p-2 text-white"
@@ -76,7 +96,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-[var(--cb-navy-900)]">
+        <div className="lg:hidden border-t border-white/15 bg-[var(--color-primary-dark)]">
           <nav className="px-6 flex flex-col py-4 gap-1">
             {links.map((link) => (
               <Link
@@ -84,26 +104,18 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={`py-2.5 text-sm font-semibold ${
-                  pathname === link.href
-                    ? "text-[var(--cb-green-600)]"
-                    : "text-white/90 hover:text-white"
+                  pathname === link.href ? "text-white" : "text-white/80"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <a
-              href="https://wa.me/51924473557"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--cb-green-600)] text-white px-5 py-3 text-sm font-semibold"
-            >
-              {whatsappIcon}
-              924 473 557
-            </a>
           </nav>
         </div>
       )}
     </header>
+    {/* Reserva el espacio del header fijo para que el contenido no quede debajo */}
+    <div style={{ height: HEADER_HEIGHT }} aria-hidden="true" />
+    </>
   );
 }

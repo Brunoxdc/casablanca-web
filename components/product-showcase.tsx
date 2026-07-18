@@ -1,6 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
+import { Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { ProductPhotoFrame } from "@/components/ui/product-photo-frame";
+import { Reveal } from "@/components/ui/reveal";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 const products = [
   {
@@ -51,52 +55,40 @@ const products = [
 
 export default function ProductShowcase() {
   return (
-    <section className="bg-white">
-      <div className="container mx-auto max-w-[1180px] px-6 py-16 md:py-20">
-        <span className="eyebrow">Catálogo completo</span>
-        <h1 className="mt-2 text-3xl md:text-[2.1rem] font-extrabold text-[var(--cb-navy-900)]">
-          Productos institucionales por mayor
-        </h1>
-        <div className="mt-2 h-1 w-14 rounded-full bg-[var(--cb-green-600)]" />
-        <p className="mt-4 text-[15px] text-[var(--cb-gray)] max-w-xl">
-          Cuatro líneas pensadas para distintos niveles de tráfico y
-          presupuesto, todas con celulosa virgen y despacho coordinado para tu
-          negocio.
-        </p>
+    <Section bg="white">
+      <SectionHeading
+        as="h1"
+        eyebrow="Catálogo completo"
+        title="Productos institucionales por mayor"
+        subtitle="Cuatro líneas pensadas para distintos niveles de tráfico y presupuesto, todas con celulosa virgen y despacho coordinado."
+      />
 
-        <div className="mt-12 flex flex-col gap-14">
-          {products.map((product, i) => (
+      <div className="mt-16 flex flex-col gap-20">
+        {products.map((product, i) => (
+          <Reveal key={product.name}>
             <div
-              key={product.name}
-              className={`grid lg:grid-cols-2 gap-8 items-center ${
+              className={`grid lg:grid-cols-2 gap-10 items-center ${
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
-              <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden bg-[var(--cb-green-50)]">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-8"
-                />
-              </div>
+              <ProductPhotoFrame src={product.image} alt={product.name} aspect="landscape" />
 
               <div>
-                <h2 className="text-xl md:text-2xl font-bold text-[var(--cb-navy-900)]">
+                <h2 className="text-xl md:text-2xl font-bold text-[var(--color-text)]">
                   {product.name}
                 </h2>
-                <p className="mt-3 text-[15px] text-[var(--cb-gray)] leading-relaxed">
+                <p className="mt-3 text-[15px] text-[var(--color-text-muted)] leading-relaxed">
                   {product.detail}
                 </p>
                 <ul className="mt-5 flex flex-col gap-2.5">
                   {product.specs.map((spec) => (
                     <li
                       key={spec}
-                      className="flex items-start gap-2 text-sm text-[var(--cb-ink)]"
+                      className="flex items-start gap-2 text-sm text-[var(--color-text)]"
                     >
                       <CheckCircle2
                         size={17}
-                        className="mt-0.5 shrink-0 text-[var(--cb-green-600)]"
+                        className="mt-0.5 shrink-0 text-[var(--color-primary)]"
                       />
                       {spec}
                     </li>
@@ -104,15 +96,15 @@ export default function ProductShowcase() {
                 </ul>
                 <Link
                   href="/contacto"
-                  className="mt-6 inline-flex items-center justify-center rounded-full bg-[var(--cb-green-600)] text-white px-6 py-3 text-sm font-semibold hover:bg-[var(--cb-green-700)] transition-colors"
+                  className={buttonVariants({ variant: "primary", className: "mt-7" })}
                 >
-                  Cotizar {product.name}
+                  Cotizar este producto
                 </Link>
               </div>
             </div>
-          ))}
-        </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

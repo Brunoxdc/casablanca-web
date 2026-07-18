@@ -1,27 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  /* Paleta Casa Blanca (institucional B2B) */
-  --cb-navy-900: #0a2138;
-  --cb-navy-800: #0e2c4a;
-  --cb-navy-700: #133559;
-  --cb-navy-600: #173f6c;
-  --cb-navy-50: #eef2f6;
+  /* ============ Design tokens — Casa Blanca ============ */
 
-  --cb-green-700: #547a2c;
-  --cb-green-600: #6c9a3c;
-  --cb-green-100: #e9f2dd;
-  --cb-green-50: #f5f8ef;
+  /* Color — azul corporativo oscuro como color dominante de marca */
+  --color-primary: #006b8f;
+  --color-primary-dark: #005f86;
+  --color-primary-50: #e6eef2;
+  --color-primary-100: #ccdde6;
 
-  --cb-ink: #16262b;
-  --cb-gray: #5b6b70;
-  --cb-gray-light: #94a3a6;
-  --cb-white: #ffffff;
-  --cb-border: #e3e8ec;
-  --cb-beige-50: #f7f3ea;
+  --color-accent: #5cb85c;
+  --color-accent-dark: #4a9d4a;
+  --color-accent-50: #eef8ee;
 
-  --cb-radius: 14px;
-  --cb-radius-full: 999px;
+  --color-white: #ffffff;
+  --color-surface: #f6f8fa;
+  --color-surface-alt: #eef2f4;
+
+  --color-text: #1f2937;
+  --color-text-muted: #5b6b76;
+  --color-text-faint: #8895a0;
+
+  --color-border: #e2e8ef;
+
+  --color-footer-bg: #00374b;
+  --color-footer-text: rgba(255, 255, 255, 0.72);
+  --color-footer-heading: rgba(255, 255, 255, 0.95);
+
+  /* Spacing rhythm */
+  --space-section: clamp(5.5rem, 9vw, 8.75rem);
+  --space-section-sm: clamp(3.5rem, 6vw, 5.5rem);
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 24px 48px -12px rgba(15, 23, 42, 0.18);
+  --shadow-hover: 0 28px 56px -16px rgba(0, 95, 134, 0.28);
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 260ms var(--ease);
 }
 
 * {
@@ -34,15 +58,15 @@ html {
 
 @layer base {
   body {
-    color: var(--cb-ink);
-    background: var(--cb-white);
+    color: var(--color-text);
+    background: var(--color-white);
     font-family: var(--font-body), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-heading), system-ui, sans-serif;
-    color: var(--cb-ink);
+    color: var(--color-text);
     margin: 0;
   }
 
@@ -58,31 +82,71 @@ html {
 
 .container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
+/* Deja espacio para la barra de conversión fija en mobile */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 76px;
+  }
+}
+
 .eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cb-green-700);
+  color: var(--color-primary-dark);
 }
 
 /* Foco de teclado visible (accesibilidad) */
 a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--cb-navy-600);
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
   outline-offset: 3px;
   border-radius: 6px;
+}
+
+/* ============ Scroll-reveal utilities ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 650ms var(--ease), transform 650ms var(--ease);
+  will-change: opacity, transform;
+}
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
+  }
+  .reveal,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
