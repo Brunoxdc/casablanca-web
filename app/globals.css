@@ -7,8 +7,8 @@
      --color-primary y --color-primary-dark son intencionalmente el mismo
      valor: existen como dos nombres por compatibilidad con el codigo, pero
      nunca deben diverger. Header, footer, CTA y titulos salen todos de aqui. */
-  --color-primary: #005f86;
-  --color-primary-dark: #005f86;
+  --color-primary: #0b2341;
+  --color-primary-dark: #0b2341;
 
   --color-accent: #5cb85c;
   --color-accent-dark: #4a9d4a;
@@ -44,7 +44,7 @@
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 24px 48px -12px rgba(15, 23, 42, 0.18);
-  --shadow-hover: 0 28px 56px -16px rgba(0, 95, 134, 0.28);
+  --shadow-hover: 0 28px 56px -16px rgba(11, 35, 65, 0.28);
 
   /* Motion */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);

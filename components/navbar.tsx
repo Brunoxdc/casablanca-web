@@ -20,7 +20,7 @@ const links = [
 // blanca del logo (pensada para fondos oscuros) es la que corresponde.
 const LOGO_SRC = "/logo-white.png";
 
-const HEADER_HEIGHT = 92;
+const HEADER_HEIGHT = 152;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -53,40 +53,39 @@ export default function Navbar() {
             alt="Casa Blanca - Papel Higiénico"
             width={300}
             height={96}
-            className="h-16 w-auto object-contain"
+            className="h-32 w-auto object-contain"
             priority
           />
         </Link>
 
-        <div className="hidden lg:flex items-center gap-10">
-          <nav className="flex items-center gap-1">
-            {links.map((link) => {
-              const active = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`group relative rounded-[var(--radius-pill)] px-4 py-2 text-[15px] font-medium tracking-[0.01em] transition-colors ${
-                    active ? "text-white" : "text-white/85 hover:text-white"
+        <nav className="hidden lg:flex items-center gap-11">
+          {links.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`group relative py-1.5 text-[15px] font-medium tracking-[0.01em] transition-colors ${
+                  active ? "text-white" : "text-white/85 hover:text-white"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-white transition-all duration-300 ease-[var(--ease)] ${
+                    active ? "w-full" : "w-0 group-hover:w-full"
                   }`}
-                >
-                  <span
-                    className={`absolute inset-0 rounded-[var(--radius-pill)] bg-white/10 transition-transform duration-300 ease-[var(--ease)] ${
-                      active
-                        ? "scale-100 opacity-100"
-                        : "scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100"
-                    }`}
-                  />
-                  <span className="relative">{link.label}</span>
-                </Link>
-              );
-            })}
-          </nav>
+                />
+              </Link>
+            );
+          })}
+        </nav>
 
-          <Link href="/contacto" className={buttonVariants({ variant: "primary" })}>
-            Solicitar cotización
-          </Link>
-        </div>
+        <Link
+          href="/contacto"
+          className={buttonVariants({ variant: "primary", className: "hidden lg:inline-flex" })}
+        >
+          Solicitar cotización
+        </Link>
 
         <button
           className="lg:hidden p-2 text-white"
