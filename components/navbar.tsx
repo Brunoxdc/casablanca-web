@@ -20,7 +20,7 @@ const links = [
 // blanca del logo (pensada para fondos oscuros) es la que corresponde.
 const LOGO_SRC = "/logo-white.png";
 
-const HEADER_HEIGHT = 152;
+const HEADER_HEIGHT = 124;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -53,7 +53,7 @@ export default function Navbar() {
             alt="Casa Blanca - Papel Higiénico"
             width={300}
             height={96}
-            className="h-32 w-auto object-contain"
+            className="h-24 w-auto object-contain"
             priority
           />
         </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`group relative py-1.5 text-[15px] font-medium tracking-[0.01em] transition-colors ${
+                className={`group relative py-1.5 text-[17px] font-medium tracking-[0.01em] transition-colors ${
                   active ? "text-white" : "text-white/85 hover:text-white"
                 }`}
               >
@@ -82,7 +82,7 @@ export default function Navbar() {
 
         <Link
           href="/contacto"
-          className={buttonVariants({ variant: "primary", className: "hidden lg:inline-flex" })}
+          className={buttonVariants({ variant: "primary", size: "lg", className: "hidden lg:inline-flex" })}
         >
           Solicitar cotización
         </Link>
@@ -105,7 +105,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`py-2.5 text-sm font-semibold ${
+                className={`py-2.5 text-base font-semibold ${
                   pathname === link.href ? "text-white" : "text-white/80"
                 }`}
               >

@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Leaf, ShieldCheck, Sparkles } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
-import { ProductPhotoFrame } from "@/components/ui/product-photo-frame";
 import { buttonVariants } from "@/components/ui/button";
 
 const benefits = [
@@ -13,7 +13,7 @@ const benefits = [
 
 export default function Hero() {
   return (
-    <Section bg="white" spacing="lg" containerClassName="grid lg:grid-cols-2 gap-16 items-center">
+    <Section bg="white" spacing="lg" containerClassName="grid lg:grid-cols-2 gap-12 items-center">
       <div>
         <Reveal>
           <h1 className="text-[2.75rem] sm:text-[3.25rem] leading-[1.08] font-bold tracking-tight">
@@ -47,12 +47,24 @@ export default function Hero() {
       </div>
 
       <Reveal variant="scale" delay={100}>
-        <ProductPhotoFrame
-          src="/producto-hero.png"
-          alt="Papel higiénico institucional Casa Blanca"
-          aspect="hero"
-          priority
-        />
+        <div className="relative">
+          {/* Halo de marca: integra la foto al fondo en vez de aislarla en
+              una card blanca con sombra. */}
+          <div
+            aria-hidden="true"
+            className="absolute -inset-10 rounded-full bg-[var(--color-primary)] opacity-[0.07] blur-3xl"
+          />
+          <div className="relative aspect-[5/4] overflow-hidden rounded-[var(--radius-lg)]">
+            <Image
+              src="/producto-hero.png"
+              alt="Papel higiénico institucional Casa Blanca"
+              fill
+              priority
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
       </Reveal>
     </Section>
   );
