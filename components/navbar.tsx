@@ -20,7 +20,7 @@ const links = [
 // blanca del logo (pensada para fondos oscuros) es la que corresponde.
 const LOGO_SRC = "/logo-white.png";
 
-const HEADER_HEIGHT = 124;
+const HEADER_HEIGHT = 200;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
