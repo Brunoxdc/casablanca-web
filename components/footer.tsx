@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer id="nosotros" className="bg-[var(--cb-navy-900)] text-white">
+    <footer className="bg-[var(--cb-navy-900)] text-white">
       <div className="container mx-auto max-w-[1180px] px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <Image
@@ -38,10 +39,10 @@ export default function Footer() {
             Enlaces rápidos
           </h4>
           <ul className="mt-4 space-y-2.5 text-sm text-white/70">
-            <li><a href="#inicio" className="hover:text-white">Inicio</a></li>
-            <li><a href="#productos" className="hover:text-white">Productos</a></li>
-            <li><a href="#beneficios" className="hover:text-white">Beneficios</a></li>
-            <li><a href="#contacto" className="hover:text-white">Cotizar</a></li>
+            <li><Link href="/" className="hover:text-white">Inicio</Link></li>
+            <li><Link href="/productos" className="hover:text-white">Productos</Link></li>
+            <li><Link href="/nosotros" className="hover:text-white">Nosotros</Link></li>
+            <li><Link href="/contacto" className="hover:text-white">Contacto</Link></li>
           </ul>
         </div>
 

@@ -1,15 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "INICIO", href: "#inicio" },
-  { label: "PRODUCTOS", href: "#productos" },
-  { label: "BENEFICIOS", href: "#beneficios" },
-  { label: "NOSOTROS", href: "#nosotros" },
-  { label: "CONTACTO", href: "#contacto" },
+  { label: "INICIO", href: "/" },
+  { label: "PRODUCTOS", href: "/productos" },
+  { label: "NOSOTROS", href: "/nosotros" },
+  { label: "CONTACTO", href: "/contacto" },
 ];
 const whatsappIcon = (
   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -19,11 +20,12 @@ const whatsappIcon = (
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--cb-navy-900)]">
       <div className="container mx-auto max-w-[1180px] px-6 flex items-center justify-between h-[104px]">
-        <a href="#inicio" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
             src="/logo-white.png"
             alt="Casa Blanca - Papel Higiénico"
@@ -32,22 +34,25 @@ export default function Navbar() {
             className="h-20 w-auto object-contain"
             priority
           />
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-11">
-          {links.map((link, i) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`text-[13px] font-semibold tracking-wide pb-1 transition-colors ${
-                i === 0
-                  ? "text-[var(--cb-green-600)] border-b-2 border-[var(--cb-green-600)]"
-                  : "text-white/90 border-b-2 border-transparent hover:text-white"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-[13px] font-semibold tracking-wide pb-1 transition-colors ${
+                  active
+                    ? "text-[var(--cb-green-600)] border-b-2 border-[var(--cb-green-600)]"
+                    : "text-white/90 border-b-2 border-transparent hover:text-white"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <a
@@ -74,14 +79,18 @@ export default function Navbar() {
         <div className="lg:hidden border-t border-white/10 bg-[var(--cb-navy-900)]">
           <nav className="px-6 flex flex-col py-4 gap-1">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="py-2.5 text-sm font-semibold text-white/90 hover:text-white"
+                className={`py-2.5 text-sm font-semibold ${
+                  pathname === link.href
+                    ? "text-[var(--cb-green-600)]"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a
               href="https://wa.me/51924473557"
