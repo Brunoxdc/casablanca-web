@@ -13,7 +13,7 @@ const benefits = [
 
 export default function Hero() {
   return (
-    <Section bg="white" containerClassName="grid lg:grid-cols-2 gap-16 items-center">
+    <Section bg="white" spacing="lg" containerClassName="grid lg:grid-cols-2 gap-16 items-center">
       <div>
         <Reveal>
           <h1 className="text-[2.75rem] sm:text-[3.25rem] leading-[1.08] font-bold tracking-tight">

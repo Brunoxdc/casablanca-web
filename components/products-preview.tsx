@@ -27,7 +27,7 @@ const featured = [
 
 export default function ProductsPreview() {
   return (
-    <Section bg="white">
+    <Section bg="white" spacing="lg">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
         <SectionHeading
           eyebrow="Catálogo"

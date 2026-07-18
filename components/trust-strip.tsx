@@ -14,7 +14,7 @@ const items = [
 export default function TrustStrip() {
   return (
     <section className="bg-[var(--color-surface)] border-y border-[var(--color-border)]">
-      <div className="container py-11 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container py-7 grid grid-cols-2 md:grid-cols-4 gap-8">
         {items.map(({ icon: Icon, label }, i) => (
           <Reveal key={label} delay={i * 80}>
             <div className="flex items-center gap-3">

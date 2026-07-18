@@ -10,9 +10,18 @@ const bgClasses: Record<Bg, string> = {
   brand: "bg-[var(--color-primary)] text-white",
 };
 
+type Spacing = "lg" | "default" | "sm";
+
+const spacingClasses: Record<Spacing, string> = {
+  lg: "py-[var(--space-section-lg)]",
+  default: "py-[var(--space-section)]",
+  sm: "py-[var(--space-section-sm)]",
+};
+
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   bg?: Bg;
-  spacing?: "default" | "sm";
+  /** lg = momento protagonico (Hero, Productos), sm = beat rapido (Beneficios) */
+  spacing?: Spacing;
   containerClassName?: string;
 }
 
@@ -27,15 +36,7 @@ export function Section({
 }: SectionProps) {
   return (
     <section className={cn(bgClasses[bg], className)} {...props}>
-      <div
-        className={cn(
-          "container",
-          spacing === "default"
-            ? "py-[var(--space-section)]"
-            : "py-[var(--space-section-sm)]",
-          containerClassName
-        )}
-      >
+      <div className={cn("container", spacingClasses[spacing], containerClassName)}>
         {children}
       </div>
     </section>

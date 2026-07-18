@@ -28,7 +28,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <Section bg="surface">
+    <Section bg="surface" spacing="sm">
       <SectionHeading
         eyebrow="Por qué elegirnos"
         title="Beneficios pensados para tu operación"
@@ -36,17 +36,17 @@ export default function Benefits() {
         className="mx-auto"
       />
 
-      <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+      <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {benefits.map(({ icon: Icon, title, desc }, i) => (
           <Reveal key={title} delay={i * 90}>
-            <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-9 shadow-[var(--shadow-sm)] transition-all duration-[300ms] ease-[var(--ease)] hover:-translate-y-2 hover:shadow-[var(--shadow-lg)]">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--color-surface)]">
-                <Icon size={28} strokeWidth={1.5} className="text-[var(--color-primary-dark)]" />
+            <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-7 shadow-[var(--shadow-sm)] transition-all duration-[260ms] ease-[var(--ease)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-md)]">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-surface)]">
+                <Icon size={24} strokeWidth={1.5} className="text-[var(--color-primary-dark)]" />
               </div>
-              <h3 className="mt-6 text-base font-bold text-[var(--color-text)]">
+              <h3 className="mt-5 text-base font-bold text-[var(--color-text)]">
                 {title}
               </h3>
-              <p className="mt-2.5 text-[14px] text-[var(--color-text-muted)] leading-relaxed">
+              <p className="mt-2 text-[14px] text-[var(--color-text-muted)] leading-relaxed">
                 {desc}
               </p>
             </div>

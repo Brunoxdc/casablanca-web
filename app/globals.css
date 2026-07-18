@@ -27,9 +27,12 @@
   --color-footer-text: rgba(255, 255, 255, 0.72);
   --color-footer-heading: rgba(255, 255, 255, 0.95);
 
-  /* Spacing rhythm */
+  /* Spacing rhythm — deliberadamente en tres escalas, no una sola,
+     para que las secciones alternen peso visual (grande/chica/mediana)
+     en vez de sentirse todas del mismo tamaño. */
+  --space-section-lg: clamp(120px, 13vw, 168px);
   --space-section: clamp(90px, 8vw, 120px);
-  --space-section-sm: clamp(64px, 6vw, 88px);
+  --space-section-sm: clamp(56px, 5vw, 76px);
 
   /* Radius */
   --radius-sm: 10px;
@@ -78,13 +81,31 @@ html {
     color: inherit;
     text-decoration: none;
   }
-}
 
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 32px;
+  /* Estas clases quedan DENTRO de @layer base a propósito: el CSS sin capa
+     siempre le gana a las utilidades de Tailwind (que sí viven en capas)
+     sin importar especificidad, así que un padding-top/bottom puesto aquí
+     fuera de capa anularía silenciosamente cualquier py-* de Tailwind. */
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    /* Solo horizontal: el ancho es responsabilidad del container, el
+       ritmo vertical lo decide cada sección con su propio py-*. */
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+  }
 }
 
 /* Deja espacio para la barra de conversión fija en mobile */
@@ -92,17 +113,6 @@ html {
   body {
     padding-bottom: 76px;
   }
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-primary-dark);
 }
 
 /* Foco de teclado visible (accesibilidad) */
