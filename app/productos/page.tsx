@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
-import Catalog from "@/components/catalog";
+import ProductShowcase from "@/components/product-showcase";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default function ProductosPage() {
   return (
     <main>
       <Navbar />
-      <Catalog />
+      <ProductShowcase />
       <Footer />
     </main>
   );

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, CheckCircle2, Leaf } from "lucide-react";
 
 const whatsappIcon = (
@@ -39,13 +38,13 @@ export default function Hero() {
               {whatsappIcon}
               924 473 557
             </a>
-            <Link
-              href="/contacto"
+            <a
+              href="#contacto"
               className="inline-flex items-center gap-2 rounded-full border-2 border-[var(--cb-navy-800)] text-[var(--cb-navy-800)] px-6 py-3.5 font-semibold hover:bg-[var(--cb-navy-50)] transition-colors"
             >
               Solicitar cotización
               <ArrowRight size={16} />
-            </Link>
+            </a>
           </div>
 
           <p className="mt-6 flex items-center gap-2 text-sm font-semibold text-[var(--cb-ink)]">

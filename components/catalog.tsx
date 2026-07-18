@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 
 const products = [
@@ -30,11 +29,11 @@ const products = [
 
 export default function Catalog() {
   return (
-    <section className="bg-white">
+    <section id="productos" className="bg-white">
       <div className="container mx-auto max-w-[1180px] px-6 py-16 md:py-20">
-        <h1 className="text-3xl md:text-[2.1rem] font-extrabold text-[var(--cb-navy-900)]">
+        <h2 className="text-3xl md:text-[2.1rem] font-extrabold text-[var(--cb-navy-900)]">
           Nuestros productos
-        </h1>
+        </h2>
         <div className="mt-2 h-1 w-14 rounded-full bg-[var(--cb-green-600)]" />
         <p className="mt-4 text-[15px] text-[var(--cb-gray)] max-w-xl">
           Soluciones institucionales listas para abastecer tu operación sin
@@ -61,12 +60,12 @@ export default function Catalog() {
                     {product.detail}
                   </p>
                 </div>
-                <Link
-                  href="/contacto"
+                <a
+                  href="#contacto"
                   className="mt-1 inline-flex w-full items-center justify-center rounded-full border-2 border-[var(--cb-navy-800)] px-4 py-2 text-sm font-semibold text-[var(--cb-navy-800)] hover:bg-[var(--cb-navy-50)] transition-colors"
                 >
                   Cotizar
-                </Link>
+                </a>
               </CardContent>
             </Card>
           ))}
