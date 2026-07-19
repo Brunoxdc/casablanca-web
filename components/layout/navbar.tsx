@@ -10,8 +10,9 @@ import { site } from "@/lib/site-config";
 
 const links = [
   { label: "Inicio", href: "/" },
-  { label: "Productos", href: "/productos" },
   { label: "Nosotros", href: "/nosotros" },
+  { label: "Productos", href: "/productos" },
+  
   { label: "Contacto", href: "/contacto" },
 ];
 

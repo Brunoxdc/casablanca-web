@@ -26,14 +26,14 @@ export default function Footer() {
           </p>
           <div className="mt-3 flex items-center gap-2">
             <a
-              href={site.social.facebook}
+              href="https://www.facebook.com/PapeleraCasaBlanca"
               aria-label="Facebook"
               className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-[var(--color-primary)] hover:text-white"
             >
               <FacebookIcon />
             </a>
             <a
-              href={site.social.instagram}
+              href="https://www.instagram.com/papeleracasablanca/"
               aria-label="Instagram"
               className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-[var(--color-primary)] hover:text-white"
             >
@@ -64,8 +64,9 @@ export default function Footer() {
           </h4>
           <ul className="mt-2 space-y-1.5 text-xs">
             <li><Link href="/" className="hover:text-white">Inicio</Link></li>
-            <li><Link href="/productos" className="hover:text-white">Productos</Link></li>
             <li><Link href="/nosotros" className="hover:text-white">Nosotros</Link></li>
+            <li><Link href="/productos" className="hover:text-white">Productos</Link></li>
+            
             <li><Link href="/contacto" className="hover:text-white">Contacto</Link></li>
           </ul>
         </div>
