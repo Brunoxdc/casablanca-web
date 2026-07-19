@@ -135,7 +135,7 @@ export default function QuoteFormFields({ className }: { className?: string }) {
         type="submit"
         className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-pill)] bg-[var(--color-accent)] text-white px-6 py-3 text-sm font-semibold transition-colors hover:bg-[var(--color-accent-dark)]"
       >
-        Enviar cotización
+        Solicitar cotización
         <ArrowRight size={16} />
       </button>
     </form>

@@ -17,9 +17,9 @@ const channels = [
   {
     icon: <Mail size={20} />,
     title: "Correo",
-    detail: site.email,
+    detail: "ventas@papeleracasablanca.com",
     sub: "Para cotizaciones formales",
-    href: `mailto:${site.email}`,
+    href: `mailto:ventas@papeleracasablanca.com`,
   },
   {
     icon: <MapPin size={20} />,
