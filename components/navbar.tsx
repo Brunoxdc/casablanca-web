@@ -18,7 +18,7 @@ const links = [
 // lógica de variantes claro/oscuro todavía (se agrega el día que haga falta).
 // El header siempre usa el color corporativo de fondo, así que la versión
 // blanca del logo (pensada para fondos oscuros) es la que corresponde.
-const LOGO_SRC = "/logo-white.png";
+const LOGO_SRC = "/logo-white-Photoroom.png";
 
 const HEADER_HEIGHT = 80;
 
@@ -53,7 +53,7 @@ export default function Navbar() {
             alt="Casa Blanca - Papel Higiénico"
             width={300}
             height={96}
-            className="h-24 w-auto object-contain"
+            className="h-24 w-auto object-contain rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.18)]"
             priority
           />
         </Link>

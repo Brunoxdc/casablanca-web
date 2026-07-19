@@ -29,7 +29,7 @@ export default function Footer() {
             alt="Casa Blanca"
             width={300}
             height={96}
-            className="h-9 w-auto object-contain"
+            className="h-9 w-auto object-contain rounded-md shadow-[0_1px_6px_rgba(0,0,0,0.18)]"
           />
           <p className="mt-3 text-xs leading-relaxed max-w-xs">
             Papel higiénico institucional con calidad constante y atención
