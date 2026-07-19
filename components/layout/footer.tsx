@@ -49,7 +49,7 @@ export default function Footer() {
               <InstagramIcon />
             </a>
             <a
-              href="https://www.tiktok.com/@tu_cuenta_aqui"
+              href="https://www.tiktok.com/@papeleracasablanca"
               aria-label="TikTok"
               className="text-white transition-transform hover:scale-110 flex items-center justify-center"
             >

@@ -82,10 +82,14 @@ export default function ProductsPreview() {
                   
                   {/* Empuja el botón hacia abajo si los títulos tienen diferente altura */}
                   <div className="mt-auto">
-                    <button className="w-full bg-[var(--color-accent)] hover:bg-[#5c8524] text-white font-bold py-3.5 rounded-xl transition-transform hover:scale-[1.02] shadow-sm text-[15px]">
+                    {/* Cambiamos el botón por un Link de Next.js que apunta a /contacto */}
+                    <Link 
+                      href="/contacto"
+                      className="w-full flex items-center justify-center bg-[var(--color-accent)] hover:bg-[#5c8524] text-white font-bold py-3.5 rounded-xl transition-transform hover:scale-[1.02] shadow-sm text-[15px]"
+                    >
                       Cotizar
-                    </button>
-                  </div>
+                    </Link>
+                  </div> 
                 </div>
 
               </div>

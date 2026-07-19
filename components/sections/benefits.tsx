@@ -26,7 +26,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="bg-[var(--color-primary)] py-12 md:py-16 relative z-10 -mt-1">
+    <section id="beneficios" className="bg-[var(--color-primary)] py-12 md:py-16 relative z-10 -mt-1">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/20">
           {benefits.map(({ icon: Icon, title, desc }, i) => (
