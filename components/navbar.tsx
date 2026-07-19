@@ -53,7 +53,7 @@ export default function Navbar() {
             alt="Casa Blanca - Papel Higiénico"
             width={300}
             height={96}
-            className="h-24 w-auto object-contain rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.18)]"
+            className="h-24 w-auto object-contain"
             priority
           />
         </Link>

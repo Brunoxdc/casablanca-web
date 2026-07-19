@@ -25,11 +25,11 @@ export default function Footer() {
       <div className="container py-10 grid md:grid-cols-2 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1.2fr] gap-8">
         <div>
           <Image
-            src="/logo-white.png"
+            src="/logo-white-Photoroom.png"
             alt="Casa Blanca"
             width={300}
             height={96}
-            className="h-9 w-auto object-contain rounded-md shadow-[0_1px_6px_rgba(0,0,0,0.18)]"
+            className="h-9 w-auto object-contain"
           />
           <p className="mt-3 text-xs leading-relaxed max-w-xs">
             Papel higiénico institucional con calidad constante y atención
