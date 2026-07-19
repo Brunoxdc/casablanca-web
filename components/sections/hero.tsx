@@ -7,9 +7,10 @@ import { site } from "@/lib/site-config";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-50 pt-4 lg:pt-8 pb-28 lg:pb-36">
+    // Reducimos el padding bottom de pb-36 a pb-16/20 para que la sección de beneficios suba
+    <section className="relative overflow-hidden bg-slate-50 pt-2 lg:pt-4 pb-16 lg:pb-20">
       
-      {/* 1. IMAGEN FONDO: Ajustado al 60% para que no invada el texto */}
+      {/* 1. IMAGEN FONDO */}
       <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[60%] z-0 pointer-events-none">
         <div 
           className="w-full h-full"
@@ -30,47 +31,45 @@ export default function Hero() {
       </div>
 
       {/* 2. CONTENIDO PRINCIPAL */}
-      <div className="container relative z-10 grid lg:grid-cols-2 items-center gap-8 lg:gap-4 pt-4 lg:pt-8 pb-8">
+      <div className="container relative z-10 grid lg:grid-cols-2 items-center gap-6 lg:gap-4 pt-2 lg:pt-4 pb-4">
         
         {/* Textos y Botones */}
         <div className="max-w-2xl px-2">
           <Reveal>
-            {/* Título equilibrado: lg:text-[4.2rem] */}
-            <h1 className="mt-2 text-[3rem] sm:text-[3.8rem] lg:text-[4.2rem] leading-[1.05] font-serif font-bold text-[var(--color-primary)] tracking-tight">
+            {/* Tamaños de texto ajustados para ser más compactos (3.75rem en desktop) */}
+            <h1 className="mt-2 text-[2.75rem] sm:text-[3.25rem] lg:text-[3.75rem] leading-[1.05] font-serif font-bold text-[var(--color-primary)] tracking-tight">
               Papel higiénico <br />
               por mayor <br />
-              {/* Subtítulo equilibrado: lg:text-[2.4rem] */}
-              <span className="block font-sans font-semibold text-[2rem] sm:text-[2.2rem] lg:text-[2.4rem] text-[var(--color-accent)] mt-2">
+              <span className="block font-sans font-semibold text-[1.75rem] sm:text-[2rem] lg:text-[2.2rem] text-[var(--color-accent)] mt-1">
                 para empresas y negocios
               </span>
             </h1>
             
-            {/* Párrafo equilibrado: 17px */}
-            <p className="mt-6 text-[16px] sm:text-[17px] text-gray-700 max-w-[450px] leading-relaxed">
+            <p className="mt-5 text-[15px] sm:text-[16px] text-gray-700 max-w-[450px] leading-relaxed">
               Directo de fábrica, con celulosa virgen, <br />
               <strong className="text-[var(--color-primary)] font-bold">calidad superior y atención rápida</strong> <br />
               para tu operación diaria.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <a
                 href={`https://wa.me/${site.phone.e164}`}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-8 py-3.5 text-[15px] font-bold text-white transition-transform hover:scale-105 shadow-md"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-3 text-[14px] sm:text-[15px] font-bold text-white transition-transform hover:scale-105 shadow-md"
               >
                 <WhatsappIcon size={20} />
                 {site.phone.display}
               </a>
               <Link
                 href="/contacto"
-                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--color-accent)] px-8 py-3.5 text-[15px] font-bold text-[var(--color-primary)] transition hover:bg-[var(--color-accent)] hover:text-white bg-transparent"
+                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--color-accent)] px-6 py-3 text-[14px] sm:text-[15px] font-bold text-[var(--color-primary)] transition hover:bg-[var(--color-accent)] hover:text-white bg-transparent"
               >
                 Solicitar cotización &rarr;
               </Link>
             </div>
             
-            <div className="mt-6 flex items-center gap-2 text-[14px] font-semibold text-[var(--color-primary)]">
+            <div className="mt-5 flex items-center gap-2 text-[13px] sm:text-[14px] font-semibold text-[var(--color-primary)]">
               <CheckCircle2 className="text-[var(--color-accent)]" size={18} />
               Directo de fábrica
             </div>
@@ -81,30 +80,30 @@ export default function Hero() {
         <Reveal
           variant="scale"
           delay={100}
-          className="relative h-[150px] lg:h-full w-full flex items-start justify-end lg:pt-12"
+          className="relative h-[120px] lg:h-full w-full flex items-start justify-end lg:pt-8"
         >
-          {/* Badge devuelto a su tamaño armónico: 32x32 (128px) */}
-          <div className="absolute top-0 right-4 lg:right-0 flex h-28 w-28 lg:h-32 lg:w-32 flex-col items-center justify-center rounded-full border-[6px] border-white bg-slate-50 p-3 shadow-xl text-center z-20">
-            <span className="text-[var(--color-accent)] mb-1 lg:mb-1">
-              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-8 h-8 lg:w-9 lg:h-9">
+          {/* Badge reducido proporcionalmente (w-28 h-28 en desktop) */}
+          <div className="absolute top-0 right-4 lg:right-0 flex h-24 w-24 lg:h-28 lg:w-28 flex-col items-center justify-center rounded-full border-[5px] lg:border-[6px] border-white bg-slate-50 p-2 shadow-xl text-center z-20">
+            <span className="text-[var(--color-accent)] mb-1">
+              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-7 h-7 lg:w-8 lg:h-8">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </span>
-            <span className="text-[9px] lg:text-[10px] font-bold leading-tight text-[var(--color-primary)] uppercase tracking-wider">
+            <span className="text-[8px] lg:text-[9px] font-bold leading-tight text-[var(--color-primary)] uppercase tracking-wider">
               Calidad<br /> que se siente<br /> en cada uso
             </span>
           </div>
         </Reveal>
       </div>
 
-      {/* 3. OLA INFERIOR CON BORDE VERDE */}
+      {/* 3. OLA INFERIOR CON BORDE VERDE (Achicamos la altura a h-[80px] en desktop para ahorrar espacio vertical) */}
       <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-20 translate-y-[1px]">
         {/* Ola Verde (Fondo) */}
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-2 lg:bottom-4 w-full h-[60px] sm:h-[90px] lg:h-[130px] text-[var(--color-accent)]" fill="currentColor">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-2 lg:bottom-3 w-full h-[40px] sm:h-[60px] lg:h-[80px] text-[var(--color-accent)]" fill="currentColor">
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z" />
         </svg>
         {/* Ola Azul (Frente) */}
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px] sm:h-[90px] lg:h-[130px] text-[var(--color-primary)]" fill="currentColor">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[40px] sm:h-[60px] lg:h-[80px] text-[var(--color-primary)]" fill="currentColor">
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z" />
         </svg>
       </div>
