@@ -1,58 +1,49 @@
-import { Headphones, PackageCheck, ShieldCheck, Truck } from "lucide-react";
-import { Section } from "@/components/ui/section";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { Package, Truck, ShieldCheck, Leaf } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 
 const benefits = [
   {
-    icon: ShieldCheck,
-    title: "Calidad certificada",
-    desc: "Cumple altos estándares de higiene y suavidad en cada rollo.",
+    icon: Leaf,
+    title: "CELULOSA VIRGEN",
+    desc: "Suavidad, resistencia y mejor rendimiento.",
   },
   {
-    icon: PackageCheck,
-    title: "Precios por mayor",
-    desc: "Condiciones especiales para compras corporativas y de volumen.",
+    icon: Package,
+    title: "VENTA POR MAYOR",
+    desc: "Precios competitivos y abastecimiento continuo.",
   },
   {
     icon: Truck,
-    title: "Entrega puntual",
-    desc: "Logística coordinada para que nunca te quedes sin stock.",
+    title: "ENTREGA RÁPIDA Y SEGURA",
+    desc: "Cumplimos con tus tiempos de entrega.",
   },
   {
-    icon: Headphones,
-    title: "Atención directa",
-    desc: "Hablas con fábrica, sin intermediarios ni letra pequeña.",
+    icon: ShieldCheck,
+    title: "CONTROL DE CALIDAD",
+    desc: "Producto limpio, bien alineado y bien sellado.",
   },
 ];
 
 export default function Benefits() {
   return (
-    <Section bg="surface" spacing="sm">
-      <SectionHeading
-        eyebrow="Por qué elegirnos"
-        title="Beneficios pensados para tu operación"
-        align="center"
-        className="mx-auto"
-      />
-
-      <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {benefits.map(({ icon: Icon, title, desc }, i) => (
-          <Reveal key={title} delay={i * 90}>
-            <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-7 shadow-[var(--shadow-sm)] transition-all duration-[var(--transition-duration)] ease-[var(--ease)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-md)]">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-surface)]">
-                <Icon size={24} strokeWidth={1.5} className="text-[var(--color-primary-dark)]" />
+    <section className="bg-[var(--color-primary)] py-12 md:py-16 relative z-10 -mt-1">
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/20">
+          {benefits.map(({ icon: Icon, title, desc }, i) => (
+            <Reveal key={title} delay={i * 100}>
+              <div className="flex flex-col items-center text-center px-6 py-8 md:py-2">
+                <Icon size={40} strokeWidth={1.2} className="text-[var(--color-accent)] mb-4" />
+                <h3 className="text-[13px] md:text-[14px] font-bold text-white tracking-wider mb-2 uppercase">
+                  {title}
+                </h3>
+                <p className="text-[13px] text-white/70 leading-relaxed max-w-[220px]">
+                  {desc}
+                </p>
               </div>
-              <h3 className="mt-5 text-base font-bold text-[var(--color-text)]">
-                {title}
-              </h3>
-              <p className="mt-2 text-[14px] text-[var(--color-text-muted)] leading-relaxed">
-                {desc}
-              </p>
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

@@ -2,21 +2,16 @@
 
 :root {
   /* ============ Design tokens — Casa Blanca ============ */
+  --color-primary: #0A1931;
+  --color-primary-dark: #071224;
 
-  /* Color — un único azul corporativo, sin variantes.
-     --color-primary y --color-primary-dark son intencionalmente el mismo
-     valor: existen como dos nombres por compatibilidad con el codigo, pero
-     nunca deben diverger. Header, footer, CTA y titulos salen todos de aqui. */
-  --color-primary: #0b2341;
-  --color-primary-dark: #0b2341;
-
-  --color-accent: #5cb85c;
-  --color-accent-dark: #4a9d4a;
-  --color-accent-50: #eef8ee;
+  --color-accent: #73A32F;
+  --color-accent-dark: #5c8524;
+  --color-accent-50: #f4f8f0;
 
   --color-white: #ffffff;
   --color-surface: #f8fafc;
-  --color-surface-alt: #f8fafc;
+  --color-surface-alt: #f1f5f9;
 
   --color-text: #1f2937;
   --color-text-muted: #5b6b76;
@@ -27,35 +22,23 @@
   --color-footer-text: rgba(255, 255, 255, 0.72);
   --color-footer-heading: rgba(255, 255, 255, 0.95);
 
-  /* Logo — ÚNICO lugar para cambiar el tamaño del logo. Se usan en
-     components/layout/navbar.tsx y components/layout/footer.tsx vía
-     className="h-[var(--logo-height-navbar)]" / "h-[var(--logo-height-footer)]".
-     El archivo del logo se cambia en lib/site-config.ts (site.logoSrc). */
   --logo-height-navbar: 96px;
   --logo-height-footer: 36px;
 
-  /* Spacing rhythm — deliberadamente en tres escalas, no una sola,
-     para que las secciones alternen peso visual (grande/chica/mediana)
-     en vez de sentirse todas del mismo tamaño. */
   --space-section-lg: clamp(120px, 13vw, 168px);
   --space-section: clamp(90px, 8vw, 120px);
   --space-section-sm: clamp(56px, 5vw, 76px);
 
-  /* Radius */
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-pill: 999px;
 
-  /* Shadow */
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 24px 48px -12px rgba(15, 23, 42, 0.18);
   --shadow-hover: 0 28px 56px -16px rgba(11, 35, 65, 0.28);
 
-  /* Motion — duración por defecto de hovers/transiciones (botones, tarjetas).
-     Se usa en componentes como className="duration-[var(--transition-duration)]
-     ease-[var(--ease)]", así que editar el número acá sí los mueve a todos. */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-duration: 260ms;
 }
@@ -91,16 +74,10 @@ html {
     text-decoration: none;
   }
 
-  /* Estas clases quedan DENTRO de @layer base a propósito: el CSS sin capa
-     siempre le gana a las utilidades de Tailwind (que sí viven en capas)
-     sin importar especificidad, así que un padding-top/bottom puesto aquí
-     fuera de capa anularía silenciosamente cualquier py-* de Tailwind. */
   .container {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    /* Solo horizontal: el ancho es responsabilidad del container, el
-       ritmo vertical lo decide cada sección con su propio py-*. */
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -117,14 +94,12 @@ html {
   }
 }
 
-/* Deja espacio para la barra de conversión fija en mobile */
 @media (max-width: 1023px) {
   body {
     padding-bottom: 76px;
   }
 }
 
-/* Foco de teclado visible (accesibilidad) */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -156,18 +131,6 @@ textarea:focus-visible {
 .reveal-scale.is-visible {
   opacity: 1;
   transform: scale(1);
-}
-
-/* ============ Hero: borde ondulado foto/panel verde ============ */
-/* Solo aplica desde desktop; en mobile la foto va debajo del texto sin curva. */
-@media (min-width: 1024px) {
-  .hero-photo-clip {
-    clip-path: polygon(
-      14% 0%, 6% 8%, 2% 16%, 4% 24%, 10% 32%, 16% 40%, 14% 48%,
-      7% 56%, 2% 64%, 5% 72%, 12% 80%, 15% 88%, 10% 100%,
-      100% 100%, 100% 0%
-    );
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
