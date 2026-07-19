@@ -26,7 +26,8 @@ const channels = [
     title: "Fábrica",
     detail: site.address.short,
     sub: "Despachos a todo Lima",
-    href: null,
+    // Reemplazamos "null" por el enlace de Google Maps
+    href: "https://www.google.com/maps/search/?api=1&query=Urb.+Los+Chales+Mz.+B+Lote+7A,+San+Vicente,+Cañete,+Perú",
   },
 ];
 
