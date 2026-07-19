@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
-import { ConversionBar } from "@/components/conversion-bar";
+import { ConversionBar } from "@/components/layout/conversion-bar";
 import "./globals.css";
 
 const heading = Poppins({

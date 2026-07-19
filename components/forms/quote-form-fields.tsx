@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { ArrowRight } from "lucide-react";
+import { whatsappUrl } from "@/lib/site-config";
 
 const productOptions = [
   "Papel Jumbo Institucional",
@@ -42,8 +43,7 @@ export default function QuoteFormFields({ className }: { className?: string }) {
       `Producto de interés: ${form.producto}`,
       form.necesidad && `Necesidad: ${form.necesidad}`,
     ].filter(Boolean);
-    const message = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/51924473557?text=${message}`, "_blank", "noopener,noreferrer");
+    window.open(whatsappUrl(lines.join("\n")), "_blank", "noopener,noreferrer");
   }
 
   return (

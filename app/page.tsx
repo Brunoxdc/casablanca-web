@@ -1,10 +1,10 @@
-import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
-import TrustStrip from "@/components/trust-strip";
-import Benefits from "@/components/benefits";
-import ProductsPreview from "@/components/products-preview";
-import CtaSection from "@/components/cta-section";
-import Footer from "@/components/footer";
+import Navbar from "@/components/layout/navbar";
+import Hero from "@/components/sections/hero";
+import TrustStrip from "@/components/sections/trust-strip";
+import Benefits from "@/components/sections/benefits";
+import ProductsPreview from "@/components/sections/products-preview";
+import CtaSection from "@/components/sections/cta-section";
+import Footer from "@/components/layout/footer";
 
 export default function Home() {
   return (

@@ -27,6 +27,13 @@
   --color-footer-text: rgba(255, 255, 255, 0.72);
   --color-footer-heading: rgba(255, 255, 255, 0.95);
 
+  /* Logo — ÚNICO lugar para cambiar el tamaño del logo. Se usan en
+     components/layout/navbar.tsx y components/layout/footer.tsx vía
+     className="h-[var(--logo-height-navbar)]" / "h-[var(--logo-height-footer)]".
+     El archivo del logo se cambia en lib/site-config.ts (site.logoSrc). */
+  --logo-height-navbar: 96px;
+  --logo-height-footer: 36px;
+
   /* Spacing rhythm — deliberadamente en tres escalas, no una sola,
      para que las secciones alternen peso visual (grande/chica/mediana)
      en vez de sentirse todas del mismo tamaño. */
@@ -46,9 +53,11 @@
   --shadow-lg: 0 24px 48px -12px rgba(15, 23, 42, 0.18);
   --shadow-hover: 0 28px 56px -16px rgba(11, 35, 65, 0.28);
 
-  /* Motion */
+  /* Motion — duración por defecto de hovers/transiciones (botones, tarjetas).
+     Se usa en componentes como className="duration-[var(--transition-duration)]
+     ease-[var(--ease)]", así que editar el número acá sí los mueve a todos. */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --transition: 260ms var(--ease);
+  --transition-duration: 260ms;
 }
 
 * {
@@ -147,6 +156,18 @@ textarea:focus-visible {
 .reveal-scale.is-visible {
   opacity: 1;
   transform: scale(1);
+}
+
+/* ============ Hero: borde ondulado foto/panel verde ============ */
+/* Solo aplica desde desktop; en mobile la foto va debajo del texto sin curva. */
+@media (min-width: 1024px) {
+  .hero-photo-clip {
+    clip-path: polygon(
+      14% 0%, 6% 8%, 2% 16%, 4% 24%, 10% 32%, 16% 40%, 14% 48%,
+      7% 56%, 2% 64%, 5% 72%, 12% 80%, 15% 88%, 10% 100%,
+      100% 100%, 100% 0%
+    );
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

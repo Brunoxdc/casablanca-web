@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/navbar";
-import ContactPage from "@/components/contact-page";
-import Footer from "@/components/footer";
+import Navbar from "@/components/layout/navbar";
+import ContactPage from "@/components/sections/contact-page";
+import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "Contacto | Casa Blanca Papel Higiénico",

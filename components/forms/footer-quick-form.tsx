@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { ArrowRight } from "lucide-react";
+import { whatsappUrl } from "@/lib/site-config";
 
 export function FooterQuickForm() {
   const [nombre, setNombre] = useState("");
@@ -9,10 +10,8 @@ export function FooterQuickForm() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const message = encodeURIComponent(
-      `Hola, soy ${nombre}. Quisiera que me contacten para una cotización. Mi teléfono: ${telefono}`
-    );
-    window.open(`https://wa.me/51924473557?text=${message}`, "_blank", "noopener,noreferrer");
+    const message = `Hola, soy ${nombre}. Quisiera que me contacten para una cotización. Mi teléfono: ${telefono}`;
+    window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
   }
 
   return (

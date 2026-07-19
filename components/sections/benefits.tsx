@@ -39,7 +39,7 @@ export default function Benefits() {
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {benefits.map(({ icon: Icon, title, desc }, i) => (
           <Reveal key={title} delay={i * 90}>
-            <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-7 shadow-[var(--shadow-sm)] transition-all duration-[260ms] ease-[var(--ease)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-md)]">
+            <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-7 shadow-[var(--shadow-sm)] transition-all duration-[var(--transition-duration)] ease-[var(--ease)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-md)]">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-surface)]">
                 <Icon size={24} strokeWidth={1.5} className="text-[var(--color-primary-dark)]" />
               </div>

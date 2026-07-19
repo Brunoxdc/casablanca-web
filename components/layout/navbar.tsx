@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { site } from "@/lib/site-config";
 
 const links = [
   { label: "Inicio", href: "/" },
@@ -13,12 +14,6 @@ const links = [
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
 ];
-
-// Único punto de reemplazo del logo: cambiar el archivo alcanza, no hay
-// lógica de variantes claro/oscuro todavía (se agrega el día que haga falta).
-// El header siempre usa el color corporativo de fondo, así que la versión
-// blanca del logo (pensada para fondos oscuros) es la que corresponde.
-const LOGO_SRC = "/logo-white-Photoroom.png";
 
 const HEADER_HEIGHT = 80;
 
@@ -48,12 +43,13 @@ export default function Navbar() {
         style={{ height: HEADER_HEIGHT }}
       >
         <Link href="/" className="flex items-center shrink-0">
+          {/* Tamaño del logo: editar --logo-height-navbar en app/globals.css, no acá. */}
           <Image
-            src={LOGO_SRC}
+            src={site.logoSrc}
             alt="Casa Blanca - Papel Higiénico"
-            width={300}
-            height={96}
-            className="h-24 w-auto object-contain"
+            width={500}
+            height={150}
+            className="h-[var(--logo-height-navbar)] w-auto object-contain"
             priority
           />
         </Link>

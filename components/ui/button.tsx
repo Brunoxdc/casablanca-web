@@ -33,7 +33,7 @@ export function buttonVariants({
   className,
 }: { variant?: Variant; size?: Size; className?: string } = {}) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-[var(--radius-pill)] font-semibold transition-all duration-[260ms] ease-[var(--ease)] disabled:opacity-50 disabled:pointer-events-none",
+    "inline-flex items-center justify-center gap-2 rounded-[var(--radius-pill)] font-semibold transition-all duration-[var(--transition-duration)] ease-[var(--ease)] disabled:opacity-50 disabled:pointer-events-none",
     variantClasses[variant],
     sizeClasses[size],
     className
