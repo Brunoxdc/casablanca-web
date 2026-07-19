@@ -7,10 +7,33 @@ import { site } from "@/lib/site-config";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-slate-50 to-slate-200 pb-32 pt-16 lg:pt-24 lg:pb-48">
-      <div className="container relative z-10 grid lg:grid-cols-2 items-center gap-12 lg:gap-8">
+    <section className="relative overflow-hidden bg-slate-50 pb-32 pt-6 lg:pt-10 lg:pb-48">
+      
+      {/* 1. IMAGEN FONDO: Al ponerla "absolute top-0 bottom-0", la imagen toca los bordes superior e inferior, eliminando el corte cuadrado. */}
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[60%] z-0 pointer-events-none">
+        <div 
+          className="w-full h-full"
+          style={{
+            // El degradado lineal solo difumina el lado izquierdo. El resto (arriba, abajo y derecha) queda sólido y al ras de la pantalla.
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 25%, black 100%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 25%, black 100%)'
+          }}
+        >
+          <Image
+            src="/producto-hero.png"
+            alt="Rollos de Papel Higiénico Casa Blanca"
+            fill
+            priority
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            className="object-cover object-center lg:object-left" 
+          />
+        </div>
+      </div>
+
+      {/* 2. CONTENIDO PRINCIPAL */}
+      <div className="container relative z-10 grid lg:grid-cols-2 items-center gap-12 lg:gap-8 pt-8 lg:pt-16 pb-10">
         
-        {/* Lado Izquierdo: Textos y Botones */}
+        {/* Textos y Botones */}
         <div className="max-w-2xl px-2">
           <Reveal>
             <h1 className="mt-3 text-[3rem] sm:text-[4.5rem] leading-[1.05] font-serif font-bold text-[var(--color-primary)] tracking-tight">
@@ -39,7 +62,7 @@ export default function Hero() {
               </a>
               <Link
                 href="/contacto"
-                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--color-accent)] px-8 py-3.5 text-[15px] font-bold text-[var(--color-primary)] transition hover:bg-[var(--color-accent)] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--color-accent)] px-8 py-3.5 text-[15px] font-bold text-[var(--color-primary)] transition hover:bg-[var(--color-accent)] hover:text-white bg-transparent"
               >
                 Solicitar cotización &rarr;
               </Link>
@@ -52,44 +75,37 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Lado Derecho: Imagen con difuminado y Badge */}
+        {/* Badge Flotante (Se mantiene en la cuadrícula para respetar los márgenes) */}
         <Reveal
           variant="scale"
           delay={100}
-          className="relative h-[350px] sm:h-[450px] lg:h-[600px] w-full order-first lg:order-last flex items-center justify-end"
+          className="relative h-[200px] lg:h-full w-full flex items-start justify-end lg:pt-4"
         >
-          {/* Contenedor con la máscara de difuminado (fade) a la izquierda */}
-          <div className="absolute inset-0 w-full h-full [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_20%,black_100%)] [mask-image:linear-gradient(to_right,transparent_0%,black_20%,black_100%)]">
-            <Image
-              src="/producto-hero.png"
-              alt="Rollos de Papel Higiénico Casa Blanca"
-              fill
-              priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-right" 
-            />
-          </div>
-          
-          {/* Badge Circular */}
-          <div className="absolute top-8 right-4 sm:top-16 sm:right-8 flex h-32 w-32 flex-col items-center justify-center rounded-full border-[6px] border-white bg-slate-50 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.15)] text-center z-20">
-            <span className="text-[var(--color-accent)] mb-1">
-              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-8 h-8">
+          <div className="absolute top-0 right-4 lg:right-0 flex h-28 w-28 lg:h-36 lg:w-36 flex-col items-center justify-center rounded-full border-[6px] border-white bg-slate-50 p-3 shadow-xl text-center z-20">
+            <span className="text-[var(--color-accent)] mb-1 lg:mb-2">
+              <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-8 h-8 lg:w-10 lg:h-10">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </span>
-            <span className="text-[10px] font-bold leading-tight text-[var(--color-primary)] uppercase tracking-wider">
+            <span className="text-[9px] lg:text-[11px] font-bold leading-tight text-[var(--color-primary)] uppercase tracking-wider">
               Calidad<br /> que se siente<br /> en cada uso
             </span>
           </div>
         </Reveal>
       </div>
 
-      {/* Divisor Curvo SVG */}
-      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-0 text-[var(--color-primary)] translate-y-[1px]">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="block h-[60px] sm:h-[90px] lg:h-[130px] w-full" fill="currentColor">
+      {/* 3. OLA INFERIOR CON BORDE VERDE (Igual al diseño original) */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-20 translate-y-[1px]">
+        {/* Ola Verde (Fondo) */}
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-2 lg:bottom-4 w-full h-[60px] sm:h-[90px] lg:h-[130px] text-[var(--color-accent)]" fill="currentColor">
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z" />
+        </svg>
+        {/* Ola Azul (Frente) */}
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px] sm:h-[90px] lg:h-[130px] text-[var(--color-primary)]" fill="currentColor">
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z" />
         </svg>
       </div>
+
     </section>
   );
 }
