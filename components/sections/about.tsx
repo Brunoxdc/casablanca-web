@@ -28,22 +28,52 @@ const values = [
 export default function About() {
   return (
     <>
-      {/* Intro */}
-      <Section bg="brand">
-        <SectionHeading
-          as="h1"
-          eyebrow="Fabricación en Cañete"
-          eyebrowTone="accent"
-          title="Una empresa peruana orientada al mercado institucional"
-          subtitle="Fabricamos y comercializamos papel higiénico institucional con atención directa, calidad constante y una propuesta enfocada en rendimiento y continuidad de abastecimiento."
-          inverted
-        />
-        <Reveal delay={100}>
-          <p className="mt-6 flex items-center gap-2 text-sm font-semibold text-white/90">
-            <MapPin size={18} className="text-[#a9ca69]" />
-            Fábrica ubicada en Cañete, Lima – Perú.
-          </p>
-        </Reveal>
+      {/* Intro - AHORA CON DOS COLUMNAS E IMAGEN */}
+      <Section bg="brand" className="overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Columna Izquierda: Textos */}
+          <Reveal>
+            <div className="max-w-xl">
+              <p className="mb-4 text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--color-accent)]">
+                Fabricación en Cañete
+              </p>
+              
+              {/* Título unificado (Serif + Sans) */}
+              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white leading-[1.1]">
+                Una empresa peruana <br />
+                <span className="block font-sans font-semibold text-[var(--color-accent)] mt-2">
+                  orientada al mercado institucional
+                </span>
+              </h1>
+              
+              <p className="mt-6 text-[15px] sm:text-[16px] text-white/80 leading-relaxed max-w-lg">
+                Fabricamos y comercializamos papel higiénico institucional con atención directa, calidad constante y una propuesta enfocada en rendimiento y continuidad de abastecimiento.
+              </p>
+
+              {/* Etiqueta / Badge de ubicación moderna */}
+              <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white border border-white/20 backdrop-blur-sm shadow-lg">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--color-accent)]">
+                  <MapPin size={16} className="text-[var(--color-primary-dark)]" />
+                </div>
+                Fábrica ubicada en Cañete, Lima – Perú.
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Columna Derecha: Imagen */}
+          <Reveal delay={100}>
+            <div className="relative aspect-[4/3] w-full max-w-lg mx-auto lg:ml-auto overflow-hidden rounded-[var(--radius-lg)] shadow-2xl border border-white/10">
+              <Image
+                src="/producto-hero.png"
+                alt="Rollos de papel higiénico Casa Blanca"
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+        </div>
       </Section>
 
       {/* Proceso y control */}
@@ -121,7 +151,7 @@ export default function About() {
             </div>
           </Reveal>
 
-          {/* Valores: sin heading propio ni íconos, igual que el mockup */}
+          {/* Valores */}
           <div className="sm:col-span-2 mt-4 grid sm:grid-cols-3 gap-8 border-t border-[var(--color-border)] pt-10">
             {values.map(({ number, title, desc }) => (
               <Reveal key={number}>

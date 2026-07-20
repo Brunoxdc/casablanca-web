@@ -7,7 +7,7 @@ import { site } from "@/lib/site-config";
 
 export default function Hero() {
   return (
-    // Reducimos el padding bottom de pb-36 a pb-16/20 para que la sección de beneficios suba
+    // Reducimos el padding bottom para que la sección de beneficios suba
     <section className="relative overflow-hidden bg-slate-50 pt-2 lg:pt-4 pb-16 lg:pb-20">
       
       {/* 1. IMAGEN FONDO */}
@@ -36,10 +36,10 @@ export default function Hero() {
         {/* Textos y Botones */}
         <div className="max-w-2xl px-2">
           <Reveal>
-            {/* Tamaños de texto ajustados para ser más compactos (3.75rem en desktop) */}
+            {/* Título: Mismo tipo de letra original, pero todo en azul oscuro */}
             <h1 className="mt-2 text-[2.75rem] sm:text-[3.25rem] lg:text-[3.75rem] leading-[1.05] font-serif font-bold text-[var(--color-primary)] tracking-tight">
               Soluciones de papel <br />
-              <span className="block font-sans font-semibold text-[1.75rem] sm:text-[2rem] lg:text-[2.2rem] text-[var(--color-accent)] mt-1">
+              <span className="block font-sans font-semibold text-[1.75rem] sm:text-[2rem] lg:text-[2.2rem] text-[var(--color-primary)] mt-1">
                 para empresas e instituciones
               </span>
             </h1>
@@ -50,6 +50,7 @@ export default function Hero() {
               desde fábrica.
             </p>
 
+            {/* BOTONES: WhatsApp y Conocer Productos */}
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <a
                 href={`https://wa.me/${site.phone.e164}`}
@@ -61,16 +62,46 @@ export default function Hero() {
                 {site.phone.display}
               </a>
               <Link
-                href="/contacto"
+                href="/productos"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--color-accent)] px-6 py-3 text-[14px] sm:text-[15px] font-bold text-[var(--color-primary)] transition hover:bg-[var(--color-accent)] hover:text-white bg-transparent"
               >
-                Solicitar cotización &rarr;
+                Conocer productos &rarr;
               </Link>
             </div>
-            
-            <div className="mt-5 flex items-center gap-2 text-[13px] sm:text-[14px] font-semibold text-[var(--color-primary)]">
-              <CheckCircle2 className="text-[var(--color-accent)]" size={18} />
-              Directo de fábrica
+
+            {/* PUNTOS INFERIORES CON CHECK */}
+            <div className="mt-10 pt-6 border-t border-black/10 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="text-[var(--color-accent)] mt-0.5 shrink-0" size={18} />
+                <div>
+                  <p className="text-[14px] sm:text-[15px] font-bold text-[var(--color-primary)]">Directo</p>
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-gray-500 mt-0.5">De fábrica</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="text-[var(--color-accent)] mt-0.5 shrink-0" size={18} />
+                <div>
+                  <p className="text-[14px] sm:text-[15px] font-bold text-[var(--color-primary)]">Celulosa</p>
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-gray-500 mt-0.5">Virgen</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="text-[var(--color-accent)] mt-0.5 shrink-0" size={18} />
+                <div>
+                  <p className="text-[14px] sm:text-[15px] font-bold text-[var(--color-primary)]">Atención</p>
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-gray-500 mt-0.5">Mayorista</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="text-[var(--color-accent)] mt-0.5 shrink-0" size={18} />
+                <div>
+                  <p className="text-[14px] sm:text-[15px] font-bold text-[var(--color-primary)]">Entrega</p>
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-gray-500 mt-0.5">Coordinada</p>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -81,7 +112,7 @@ export default function Hero() {
           delay={100}
           className="relative h-[120px] lg:h-full w-full flex items-start justify-end lg:pt-8"
         >
-          {/* Badge reducido proporcionalmente (w-28 h-28 en desktop) */}
+          {/* Badge reducido proporcionalmente */}
           <div className="absolute top-0 right-4 lg:right-0 flex h-24 w-24 lg:h-28 lg:w-28 flex-col items-center justify-center rounded-full border-[5px] lg:border-[6px] border-white bg-slate-50 p-2 shadow-xl text-center z-20">
             <span className="text-[var(--color-accent)] mb-1">
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-7 h-7 lg:w-8 lg:h-8">
@@ -95,7 +126,7 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      {/* 3. OLA INFERIOR CON BORDE VERDE (Achicamos la altura a h-[80px] en desktop para ahorrar espacio vertical) */}
+      {/* 3. OLA INFERIOR CON BORDE VERDE */}
       <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-20 translate-y-[1px]">
         {/* Ola Verde (Fondo) */}
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-2 lg:bottom-3 w-full h-[40px] sm:h-[60px] lg:h-[80px] text-[var(--color-accent)]" fill="currentColor">

@@ -7,19 +7,19 @@ const products = [
   {
     id: 1,
     title: "Papel Jumbo Institucional",
-    specs: "6 rollos x 300 m",
+    specs: "6 rollos x 200 m · Doble hoja",
     image: "/chatgpt-mockup/producto-jumbo-hero.webp",
   },
   {
     id: 2,
     title: "Papel Higiénico Black",
-    specs: "24 rollos x 40 m",
+    specs: "24 rollos x 40 m · Extra suave",
     image: "/chatgpt-mockup/producto-24-rollos.webp",
   },
   {
     id: 3,
     title: "Toalla Institucional",
-    specs: "Rollo + dispensador",
+    specs: "500 gramos · Doble hoja · Alta absorción",
     image: "/chatgpt-mockup/producto-toalla.webp",
   }
 ];
