@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useEffect } from "react";
 import { 
   Compass, 
   MapPin, 
@@ -42,9 +45,17 @@ const sectores = [
 ];
 
 export default function About() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 8;
+    }
+  }, []);
+
   return (
     <>
-      {/* Intro - DISEÑO INMERSIVO */}
+      {/* Intro - DISEÑO INMERSIVO (Papel más visible con menos opacidad oscura) */}
       <section className="relative flex min-h-[50vh] md:min-h-[60vh] items-center justify-center overflow-hidden py-16 px-6">
         <Image
           src="/producto-hero.png"
@@ -54,7 +65,8 @@ export default function About() {
           className="object-cover object-center z-0"
         />
         
-        <div className="absolute inset-0 bg-[var(--color-primary-dark)]/85 z-10 backdrop-blur-[2px]"></div>
+        {/* Capa oscura más ligera (/70) para que el fondo del papel resalte más */}
+        <div className="absolute inset-0 bg-[var(--color-primary-dark)]/70 z-10"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary-dark)] to-transparent z-10"></div>
 
         <div className="container relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center">
@@ -75,14 +87,14 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={200}>
-            <p className="mt-8 text-[16px] sm:text-[18px] text-white/80 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-8 text-[16px] sm:text-[18px] text-white/90 leading-relaxed max-w-2xl mx-auto">
               Fabricamos y comercializamos papel higiénico institucional con atención directa, calidad constante y una propuesta enfocada en rendimiento y continuidad de abastecimiento.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Proceso y control - ESPACIOS OPTIMIZADOS (spacing="sm") */}
+      {/* Proceso y control */}
       <Section bg="white" spacing="sm" className="overflow-hidden">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
@@ -131,7 +143,7 @@ export default function About() {
         </div>
       </Section>
 
-      {/* Misión, visión y valores - ESPACIOS OPTIMIZADOS (spacing="sm") */}
+      {/* Misión, visión y valores */}
       <Section bg="surface" spacing="sm">
         <div className="max-w-6xl mx-auto">
           
@@ -207,7 +219,7 @@ export default function About() {
         </div>
       </Section>
 
-      {/* Así trabajamos - VIDEO PANORÁMICO Y TEXTOS AJUSTADOS */}
+      {/* Así trabajamos - VIDEO INICIANDO EN SEGUNDO 8 */}
       <Section bg="white" spacing="sm">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <Reveal>
@@ -225,13 +237,16 @@ export default function About() {
           </Reveal>
           
           <Reveal delay={100}>
-            {/* Contenedor aspect-video para forzar el formato 16:9 horizontal */}
             <div className="relative w-full aspect-video rounded-[var(--radius-lg)] shadow-xl overflow-hidden border border-gray-100 bg-gray-50">
               <video
+                ref={videoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
+                onLoadedMetadata={() => {
+                  if (videoRef.current) videoRef.current.currentTime = 8;
+                }}
                 poster="/chatgpt-mockup/proceso-casa-blanca-poster.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
               >
@@ -242,30 +257,43 @@ export default function About() {
         </div>
       </Section>
 
-      {/* Sectores - NUEVO DISEÑO PREMIUM SIN EMOJIS */}
+      {/* Sectores - DISEÑO LLAMATIVO Y MODERNO */}
       <Section bg="surface" spacing="sm">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <Reveal>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[var(--color-primary-dark)]">
+            <div className="text-center mb-14">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#788b43] mb-3 block">
+                Cobertura institucional
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[var(--color-primary-dark)]">
                 Sectores que atendemos
               </h2>
-              <div className="h-1 w-12 bg-[var(--color-accent)] mx-auto mt-4 rounded-full"></div>
+              <div className="h-1 w-16 bg-[#788b43] mx-auto mt-4 rounded-full"></div>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {sectores.map((sector, idx) => {
               const Icon = sector.icon;
               return (
-                <Reveal key={sector.name} delay={idx * 50}>
-                  <div className="group flex flex-col items-center justify-center p-6 md:p-8 rounded-[var(--radius-lg)] bg-white border border-[var(--color-border)] shadow-sm transition-all hover:shadow-md hover:border-[var(--color-accent)] text-center cursor-default">
-                    <div className="h-16 w-16 rounded-full bg-[var(--color-surface)] flex items-center justify-center mb-4 transition-colors group-hover:bg-[#788b43]/10">
-                      <Icon size={32} strokeWidth={1.2} className="text-[var(--color-primary-dark)] group-hover:text-[var(--color-accent)] transition-colors" />
+                <Reveal key={sector.name} delay={idx * 60}>
+                  <div className="group relative overflow-hidden rounded-[var(--radius-lg)] bg-white p-8 border border-[var(--color-border)] shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#788b43]/40 text-center">
+                    
+                    {/* Detalle decorativo superior que aparece al pasar el mouse */}
+                    <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#788b43] to-[#536633] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+
+                    {/* Círculo del ícono con color dinámico en hover */}
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-surface)] text-[var(--color-primary-dark)] shadow-inner transition-all duration-300 group-hover:bg-[#788b43] group-hover:text-white group-hover:scale-110 mb-6">
+                      <Icon size={30} strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-bold text-[var(--color-primary-dark)] text-lg">
+
+                    <h3 className="font-serif font-bold text-[var(--color-primary-dark)] text-xl tracking-tight mb-2">
                       {sector.name}
                     </h3>
+                    
+                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                      Abastecimiento constante y adaptado a la exigencia de este rubro.
+                    </p>
                   </div>
                 </Reveal>
               );

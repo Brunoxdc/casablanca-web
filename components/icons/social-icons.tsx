@@ -1,16 +1,58 @@
-/** Íconos de redes sociales usados en el footer. */
-export function FacebookIcon() {
+import * as React from "react";
+
+/** Íconos de redes sociales oficiales para el footer. */
+
+export function FacebookIcon({ size = 24 }: { size?: number }) {
   return (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-      <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z" />
+    <svg viewBox="0 0 24 24" width={size} height={size} className="transition-transform hover:scale-110">
+      {/* Fondo circular azul oficial */}
+      <path 
+        d="M12 0C5.373 0 0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12c0-6.627-5.373-12-12-12z" 
+        fill="#1877F2"
+      />
+      {/* Letra 'f' blanca */}
+      <path 
+        d="M16.671 15.542l.532-3.469h-3.328V9.82c0-.949.465-1.874 1.956-1.874h1.514V5.003s-1.374-.235-2.686-.235c-2.74 0-4.533 1.662-4.533 4.669v2.637H7.078v3.469h3.047v8.385a12.09 12.09 0 003.75 0v-8.385h2.796z" 
+        fill="#ffffff"
+      />
     </svg>
   );
 }
 
-export function InstagramIcon() {
+export function InstagramIcon({ size = 24 }: { size?: number }) {
   return (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-      <path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.87 1.05 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76a4.9 4.9 0 0 1 1.76-1.15c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.17 1.17 0 1 0 0-2.34 1.17 1.17 0 0 0 0 2.34Z" />
+    <svg viewBox="0 0 24 24" width={size} height={size} className="transition-transform hover:scale-110">
+      <defs>
+        {/* Degradado oficial de Instagram */}
+        <linearGradient id="igGrad" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#f09433"/>
+          <stop offset="0.25" stopColor="#e6683c"/>
+          <stop offset="0.5" stopColor="#dc2743"/>
+          <stop offset="0.75" stopColor="#cc2366"/>
+          <stop offset="1" stopColor="#bc1888"/>
+        </linearGradient>
+      </defs>
+      {/* Fondo completo 24x24 */}
+      <rect x="0" y="0" width="24" height="24" rx="6.5" fill="url(#igGrad)"/>
+      {/* Cámara blanca más gruesa y visible */}
+      <rect x="5.5" y="5.5" width="13" height="13" rx="3.5" fill="none" stroke="#ffffff" strokeWidth="2"/>
+      <circle cx="12" cy="12" r="3" fill="none" stroke="#ffffff" strokeWidth="2"/>
+      <circle cx="16.5" cy="7.5" r="1.2" fill="#ffffff"/>
+    </svg>
+  );
+}
+
+export function TiktokIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} className="transition-transform hover:scale-110">
+      {/* Fondo negro */}
+      <circle cx="12" cy="12" r="12" fill="#000000" />
+      {/* Sombra Cian */}
+      <path d="M12.4 6v7.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5c.2 0 .4.1.6.1V8.7c-.2-.1-.4-.1-.6-.1-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5V8.3c1 .7 2.2 1.1 3.5 1.1V7.1c-1.3-.1-2.4-.6-3.3-1.5l-.2-.2z" fill="#69C9D0" transform="translate(-0.5, -0.5)"/>
+      {/* Sombra Magenta */}
+      <path d="M12.4 6v7.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5c.2 0 .4.1.6.1V8.7c-.2-.1-.4-.1-.6-.1-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5V8.3c1 .7 2.2 1.1 3.5 1.1V7.1c-1.3-.1-2.4-.6-3.3-1.5l-.2-.2z" fill="#EE1D52" transform="translate(0.5, 0.5)"/>
+      {/* Nota musical blanca */}
+      <path d="M12.4 6v7.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5c.2 0 .4.1.6.1V8.7c-.2-.1-.4-.1-.6-.1-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5V8.3c1 .7 2.2 1.1 3.5 1.1V7.1c-1.3-.1-2.4-.6-3.3-1.5l-.2-.2z" fill="#ffffff" />
     </svg>
   );
 }
