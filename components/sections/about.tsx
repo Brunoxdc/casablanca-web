@@ -1,11 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Eye, MapPin, Target } from "lucide-react";
+import { 
+  Compass, 
+  MapPin, 
+  Telescope, 
+  Building2, 
+  Utensils, 
+  Stethoscope, 
+  Briefcase, 
+  GraduationCap, 
+  Warehouse 
+} from "lucide-react";
 import { Section } from "@/components/ui/section";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { buttonVariants } from "@/components/ui/button";
-import Sectors from "@/components/sections/sectors";
 
 const values = [
   {
@@ -25,180 +32,246 @@ const values = [
   },
 ];
 
+const sectores = [
+  { name: "Hoteles", icon: Building2 },
+  { name: "Restaurantes", icon: Utensils },
+  { name: "Clínicas", icon: Stethoscope },
+  { name: "Oficinas", icon: Briefcase },
+  { name: "Colegios", icon: GraduationCap },
+  { name: "Bodegas", icon: Warehouse },
+];
+
 export default function About() {
   return (
     <>
-      {/* Intro - AHORA CON DOS COLUMNAS E IMAGEN */}
-      <Section bg="brand" className="overflow-hidden">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Columna Izquierda: Textos */}
+      {/* Intro - DISEÑO INMERSIVO */}
+      <section className="relative flex min-h-[50vh] md:min-h-[60vh] items-center justify-center overflow-hidden py-16 px-6">
+        <Image
+          src="/producto-hero.png"
+          alt="Productos e instalaciones Casa Blanca"
+          fill
+          priority
+          className="object-cover object-center z-0"
+        />
+        
+        <div className="absolute inset-0 bg-[var(--color-primary-dark)]/85 z-10 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary-dark)] to-transparent z-10"></div>
+
+        <div className="container relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs sm:text-sm font-semibold text-white border border-white/20 backdrop-blur-md mb-8 shadow-lg">
+              <MapPin size={16} className="text-[var(--color-accent)]" />
+              Fabricación en Cañete, Lima – Perú
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-[1.1]">
+              Una empresa peruana <br />
+              <span className="block mt-3">
+                orientada al mercado institucional
+              </span>
+            </h1>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <p className="mt-8 text-[16px] sm:text-[18px] text-white/80 leading-relaxed max-w-2xl mx-auto">
+              Fabricamos y comercializamos papel higiénico institucional con atención directa, calidad constante y una propuesta enfocada en rendimiento y continuidad de abastecimiento.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Proceso y control - ESPACIOS OPTIMIZADOS (spacing="sm") */}
+      <Section bg="white" spacing="sm" className="overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          
           <Reveal>
             <div className="max-w-xl">
-              <p className="mb-4 text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--color-accent)]">
-                Fabricación en Cañete
+              <span className="text-sm md:text-base font-bold uppercase tracking-widest text-[var(--color-text-muted)] mb-4 block">
+                Proceso y control
+              </span>
+              
+              <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-serif font-bold text-[var(--color-primary-dark)] leading-[1.1] mb-6 md:mb-8">
+                Cuidamos el producto <br/> antes de cada despacho.
+              </h2>
+              
+              <p className="text-lg sm:text-xl text-[var(--color-text)] leading-relaxed mb-5">
+                Revisamos la fabricación, presentación y preparación para entregar un producto limpio y consistente.
+              </p>
+              <p className="text-lg sm:text-xl text-[var(--color-text)] leading-relaxed mb-10">
+                La atención directa nos permite comprender cada requerimiento y acompañar las compras recurrentes con mayor cercanía.
               </p>
               
-              {/* Título unificado (Serif + Sans) */}
-              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white leading-[1.1]">
-                Una empresa peruana <br />
-                <span className="block font-sans font-semibold text-[var(--color-accent)] mt-2">
-                  orientada al mercado institucional
+              <Link
+                href="/contacto"
+                className="inline-flex items-center justify-center rounded-[var(--radius-sm)] bg-[#788b43] px-10 py-4 text-lg font-bold text-white transition-all hover:bg-[#687a38] hover:shadow-lg"
+              >
+                Contactar al equipo
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="relative mx-auto max-w-[500px] lg:max-w-none mt-8 lg:mt-0">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border-[10px] sm:border-[16px] border-white bg-white shadow-xl rotate-[-2deg] transition-transform hover:rotate-0 duration-500 z-10">
+                <div className="absolute inset-0 bg-black/5 mix-blend-overlay z-10"></div>
+                <Image
+                  src="/chatgpt-mockup/control-calidad.webp"
+                  alt="Control de calidad en fábrica"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 90vw"
+                  className="object-cover contrast-110 brightness-95"
+                />
+              </div>
+              <div className="absolute -bottom-8 -right-8 -z-0 h-[90%] w-[90%] rounded-xl bg-[var(--color-primary-dark)]/10 blur-xl"></div>
+              <div className="absolute -top-6 -left-6 -z-0 h-24 w-24 rounded-full bg-[#788b43]/20 blur-2xl"></div>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Misión, visión y valores - ESPACIOS OPTIMIZADOS (spacing="sm") */}
+      <Section bg="surface" spacing="sm">
+        <div className="max-w-6xl mx-auto">
+          
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
+            <Reveal>
+              <div className="group relative h-full overflow-hidden rounded-[var(--radius-lg)] bg-white p-8 sm:p-10 shadow-sm transition-all hover:shadow-md border border-[var(--color-border)]">
+                <div className="absolute top-0 left-0 w-full h-1 bg-[var(--color-accent)] transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+                
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-faint)]">
+                  Propósito actual
                 </span>
-              </h1>
-              
-              <p className="mt-6 text-[15px] sm:text-[16px] text-white/80 leading-relaxed max-w-lg">
-                Fabricamos y comercializamos papel higiénico institucional con atención directa, calidad constante y una propuesta enfocada en rendimiento y continuidad de abastecimiento.
-              </p>
-
-              {/* Etiqueta / Badge de ubicación moderna */}
-              <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white border border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--color-accent)]">
-                  <MapPin size={16} className="text-[var(--color-primary-dark)]" />
+                
+                <div className="mt-5 flex h-14 w-14 items-center justify-center rounded-full border border-[var(--color-border)] bg-white shadow-sm transition-colors group-hover:border-[var(--color-accent)]">
+                  <Compass size={24} strokeWidth={1.5} className="text-[var(--color-primary-dark)] transition-colors group-hover:text-[var(--color-accent)]" />
                 </div>
-                Fábrica ubicada en Cañete, Lima – Perú.
+                
+                <h2 className="mt-6 text-xl font-serif font-bold text-[var(--color-primary-dark)]">Misión</h2>
+                <p className="mt-3 text-[16px] text-[var(--color-text-muted)] leading-relaxed">
+                  Brindar productos de papel higiénico institucional de calidad para empresas, negocios e instituciones, con atención rápida, buen servicio y precios competitivos.
+                </p>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
 
-          {/* Columna Derecha: Imagen */}
-          <Reveal delay={100}>
-            <div className="relative aspect-[4/3] w-full max-w-lg mx-auto lg:ml-auto overflow-hidden rounded-[var(--radius-lg)] shadow-2xl border border-white/10">
-              <Image
-                src="/producto-hero.png"
-                alt="Rollos de papel higiénico Casa Blanca"
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
-        </div>
-      </Section>
+            <Reveal delay={80}>
+              <div className="group relative h-full overflow-hidden rounded-[var(--radius-lg)] bg-white p-8 sm:p-10 shadow-sm transition-all hover:shadow-md border border-[var(--color-border)]">
+                <div className="absolute top-0 left-0 w-full h-1 bg-[var(--color-accent)] transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+                
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-faint)]">
+                  Proyección
+                </span>
 
-      {/* Proceso y control */}
-      <Section bg="surface">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
-          <Reveal>
-            <div className="relative aspect-[4/5] max-w-md overflow-hidden rounded-[var(--radius-lg)] shadow-[var(--shadow-lg)]">
-              <Image
-                src="/chatgpt-mockup/control-calidad.webp"
-                alt="Colaborador de Casa Blanca realizando el control del producto"
-                fill
-                sizes="(min-width: 1024px) 40vw, 90vw"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
+                <div className="mt-5 flex h-14 w-14 items-center justify-center rounded-full border border-[var(--color-border)] bg-white shadow-sm transition-colors group-hover:border-[var(--color-accent)]">
+                  <Telescope size={24} strokeWidth={1.5} className="text-[var(--color-primary-dark)] transition-colors group-hover:text-[var(--color-accent)]" />
+                </div>
 
-          <Reveal delay={100}>
-            <SectionHeading
-              eyebrow="Proceso y control"
-              eyebrowTone="muted"
-              title="Cuidamos el producto antes de cada despacho"
-            />
-            <p className="mt-5 text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-              Revisamos la fabricación, presentación y preparación de cada
-              pedido para entregar un producto limpio y consistente.
-            </p>
-            <p className="mt-4 text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-              La atención directa nos permite entender cada requerimiento y
-              acompañar las compras recurrentes con mayor cercanía.
-            </p>
-            <Link
-              href="/contacto"
-              className={buttonVariants({ variant: "primary", size: "lg", className: "mt-8" })}
-            >
-              Contactar al equipo
-            </Link>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* Misión y visión */}
-      <Section bg="white">
-        <div className="grid sm:grid-cols-2 gap-6">
-          <Reveal>
-            <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] p-7">
-              <span className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-faint)]">
-                Propósito actual
-              </span>
-              <div className="mt-3 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-surface)]">
-                <Target size={20} className="text-[var(--color-primary-dark)]" />
+                <h2 className="mt-6 text-xl font-serif font-bold text-[var(--color-primary-dark)]">Visión</h2>
+                <p className="mt-3 text-[16px] text-[var(--color-text-muted)] leading-relaxed">
+                  Consolidarnos como una marca peruana reconocida en el mercado institucional por nuestra calidad, confianza y crecimiento sostenible.
+                </p>
               </div>
-              <h2 className="mt-4 text-lg font-bold text-[var(--color-text)]">Misión</h2>
-              <p className="mt-2 text-[14px] text-[var(--color-text-muted)] leading-relaxed">
-                Brindar productos de papel higiénico institucional de
-                calidad para empresas, negocios e instituciones, con
-                atención rápida, buen servicio y precios competitivos.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-border)] p-7">
-              <span className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-faint)]">
-                Proyección
-              </span>
-              <div className="mt-3 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-surface)]">
-                <Eye size={20} className="text-[var(--color-primary-dark)]" />
-              </div>
-              <h2 className="mt-4 text-lg font-bold text-[var(--color-text)]">Visión</h2>
-              <p className="mt-2 text-[14px] text-[var(--color-text-muted)] leading-relaxed">
-                Consolidarnos como una marca peruana reconocida en el
-                mercado institucional por nuestra calidad, confianza y
-                crecimiento sostenible.
-              </p>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
 
-          {/* Valores */}
-          <div className="sm:col-span-2 mt-4 grid sm:grid-cols-3 gap-8 border-t border-[var(--color-border)] pt-10">
-            {values.map(({ number, title, desc }) => (
-              <Reveal key={number}>
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl font-black text-[#788b43]">{number}</span>
-                  <div>
-                    <h3 className="font-normal text-lg text-[var(--color-text)]">{title}</h3>
+          {/* Valores (Pilares) */}
+          <div className="mt-16 md:mt-20">
+            <Reveal>
+              <div className="text-center mb-10 md:mb-12">
+                <h3 className="text-2xl font-serif font-bold text-[var(--color-primary-dark)]">
+                  Nuestros pilares
+                </h3>
+                <div className="h-1 w-12 bg-[var(--color-accent)] mx-auto mt-4 rounded-full"></div>
+              </div>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-3 gap-8 lg:gap-12">
+              {values.map(({ number, title, desc }, index) => (
+                <Reveal key={number} delay={index * 100}>
+                  <div className="flex flex-col sm:items-start text-center sm:text-left">
+                    <span className="text-3xl font-black text-[#788b43] opacity-90 mx-auto sm:mx-0">
+                      {number}
+                    </span>
+                    <h4 className="font-bold text-lg text-[var(--color-primary-dark)] mt-2">
+                      {title}
+                    </h4>
                     <p className="mt-2 text-sm text-[var(--color-text-muted)] leading-relaxed">
                       {desc}
                     </p>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
 
-      {/* Así trabajamos */}
-      <Section bg="surface">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
+      {/* Así trabajamos - VIDEO PANORÁMICO Y TEXTOS AJUSTADOS */}
+      <Section bg="white" spacing="sm">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <Reveal>
-            <SectionHeading
-              eyebrow="Así trabajamos"
-              eyebrowTone="muted"
-              title="Personas y procesos detrás de cada pedido"
-              subtitle="La producción se acompaña con revisión y trabajo directo de nuestro equipo en planta."
-            />
+            <div className="max-w-xl">
+              <span className="text-sm font-bold uppercase tracking-widest text-[var(--color-text-muted)] mb-4 block">
+                Así trabajamos
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-bold text-[var(--color-primary-dark)] leading-[1.1] mb-6">
+                Personas y procesos detrás de cada pedido.
+              </h2>
+              <p className="text-lg text-[var(--color-text)] leading-relaxed">
+                La producción se acompaña con revisión y trabajo directo de nuestro equipo en planta.
+              </p>
+            </div>
           </Reveal>
+          
           <Reveal delay={100}>
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster="/chatgpt-mockup/proceso-casa-blanca-poster.jpg"
-              className="w-full rounded-[var(--radius-lg)] shadow-[var(--shadow-lg)]"
-            >
-              <source src="/chatgpt-mockup/proceso-casa-blanca.mp4" type="video/mp4" />
-            </video>
+            {/* Contenedor aspect-video para forzar el formato 16:9 horizontal */}
+            <div className="relative w-full aspect-video rounded-[var(--radius-lg)] shadow-xl overflow-hidden border border-gray-100 bg-gray-50">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/chatgpt-mockup/proceso-casa-blanca-poster.jpg"
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/chatgpt-mockup/proceso-casa-blanca.mp4" type="video/mp4" />
+              </video>
+            </div>
           </Reveal>
         </div>
       </Section>
 
-      {/* Sectores */}
-      <Section bg="white">
-        <Sectors />
+      {/* Sectores - NUEVO DISEÑO PREMIUM SIN EMOJIS */}
+      <Section bg="surface" spacing="sm">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[var(--color-primary-dark)]">
+                Sectores que atendemos
+              </h2>
+              <div className="h-1 w-12 bg-[var(--color-accent)] mx-auto mt-4 rounded-full"></div>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            {sectores.map((sector, idx) => {
+              const Icon = sector.icon;
+              return (
+                <Reveal key={sector.name} delay={idx * 50}>
+                  <div className="group flex flex-col items-center justify-center p-6 md:p-8 rounded-[var(--radius-lg)] bg-white border border-[var(--color-border)] shadow-sm transition-all hover:shadow-md hover:border-[var(--color-accent)] text-center cursor-default">
+                    <div className="h-16 w-16 rounded-full bg-[var(--color-surface)] flex items-center justify-center mb-4 transition-colors group-hover:bg-[#788b43]/10">
+                      <Icon size={32} strokeWidth={1.2} className="text-[var(--color-primary-dark)] group-hover:text-[var(--color-accent)] transition-colors" />
+                    </div>
+                    <h3 className="font-bold text-[var(--color-primary-dark)] text-lg">
+                      {sector.name}
+                    </h3>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
       </Section>
     </>
   );
