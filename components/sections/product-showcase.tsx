@@ -38,20 +38,20 @@ const products = [
 export default function ProductShowcase() {
   return (
     <>
-      {/* Intro - DISEÑO NUEVO EN DOS COLUMNAS */}
-      <Section bg="white" spacing="lg" className="overflow-hidden pb-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      {/* Intro - ESPACIO SUPERIOR REDUCIDO (spacing="sm") */}
+      <Section bg="white" spacing="sm" className="overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           {/* Columna Izquierda: Textos y Botones */}
           <Reveal>
             <div className="max-w-xl">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#788b43] mb-4 block">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#788b43] mb-3 block">
                 Portafolio institucional y mayorista
               </span>
               
               <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-serif font-bold text-[var(--color-primary-dark)] leading-[1.1] mb-6">
                 Productos definidos por <br />
-                <span className="font-sans font-medium text-[var(--color-primary-dark)]">
+                <span className="block font-sans font-medium text-[var(--color-primary-dark)] mt-2">
                   rendimiento y aplicación.
                 </span>
               </h1>
@@ -71,34 +71,38 @@ export default function ProductShowcase() {
             </div>
           </Reveal>
 
-          {/* Columna Derecha: Imagen Destacada */}
+          {/* Columna Derecha: Imagen de los paquetes reales */}
           <Reveal delay={100}>
-            <div className="relative w-full max-w-[500px] mx-auto lg:ml-auto aspect-[4/3] flex items-center justify-center">
-              <div className="absolute inset-0 bg-slate-50 rounded-full scale-90 -z-10"></div>
-              <Image
-                src="/producto-hero.png"
-                alt="Portafolio de productos Casa Blanca"
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-contain drop-shadow-xl hover:scale-105 transition-transform duration-700 p-4"
-              />
+            <div className="relative w-full max-w-[500px] mx-auto lg:ml-auto">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-lg)] border-[8px] border-white bg-slate-50 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                <Image
+                  src="/paquetes-casa-blanca.jpg" 
+                  alt="Portafolio completo de productos Casa Blanca"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-center"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 -z-10 h-full w-full rounded-[var(--radius-lg)] bg-[var(--color-primary-dark)]/10 blur-xl"></div>
             </div>
           </Reveal>
 
         </div>
       </Section>
 
-      {/* Índice rápido */}
-      <div className="border-y border-[var(--color-border)] bg-slate-50/50">
-        <div className="container flex flex-wrap gap-x-12 gap-y-3 py-4">
+      {/* Índice rápido compacto sin espacios muertos */}
+      <div className="border-y border-[var(--color-border)] bg-slate-50/70">
+        <div className="container flex flex-wrap gap-x-12 gap-y-3 py-3.5 justify-start md:justify-center">
           {products.map((product) => (
             <a
               key={product.name}
               href={`#producto-${product.number}`}
-              className="flex items-center gap-3 text-sm font-bold text-[var(--color-text)] transition-colors hover:text-[#788b43]"
+              className="group flex items-center gap-3 text-sm font-bold text-[var(--color-text)] transition-colors hover:text-[#788b43]"
             >
-              <span className="font-black text-[#788b43]">{product.number}</span>
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white border border-[var(--color-border)] text-xs font-black text-[#788b43] shadow-sm group-hover:border-[#788b43] transition-colors">
+                {product.number}
+              </span>
               {product.name}
             </a>
           ))}
@@ -106,7 +110,7 @@ export default function ProductShowcase() {
       </div>
 
       {/* Catálogo */}
-      <Section bg="white" id="catalogo">
+      <Section bg="white" id="catalogo" spacing="sm">
         <div className="flex flex-col gap-20">
           {products.map((product, i) => (
             <Reveal key={product.name} className="scroll-mt-24">
@@ -171,7 +175,7 @@ export default function ProductShowcase() {
       </Section>
 
       {/* No sabes cuál elegir */}
-      <Section bg="surface">
+      <Section bg="surface" spacing="sm">
         <div className="max-w-2xl">
           <SectionHeading
             eyebrow="¿No sabes cuál elegir?"
