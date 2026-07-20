@@ -8,20 +8,19 @@ const products = [
     id: 1,
     title: "Papel Jumbo Institucional",
     specs: "6 rollos x 300 m",
-    image: "/productos/papel-jumbo.png", 
+    image: "/chatgpt-mockup/producto-jumbo-hero.webp",
   },
   {
     id: 2,
     title: "Papel Higiénico Black",
     specs: "24 rollos x 40 m",
-    // Usa la que corresponda a la imagen de empaque verde:
-    image: "/productos/papel-higienico.png", 
+    image: "/chatgpt-mockup/producto-24-rollos.webp",
   },
   {
     id: 3,
     title: "Toalla Institucional",
     specs: "Rollo + dispensador",
-    image: "/productos/papel-toalla.png",
+    image: "/chatgpt-mockup/producto-toalla.webp",
   }
 ];
 

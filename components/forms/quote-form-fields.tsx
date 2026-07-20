@@ -6,7 +6,6 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 const productOptions = [
   "Papel Jumbo Institucional",
   "Papel Higiénico Black",
-  "Papel Institucional Blanco",
   "Toalla Institucional y Dispensadores",
 ];
 

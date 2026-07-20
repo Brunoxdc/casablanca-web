@@ -2,7 +2,9 @@ import Navbar from "@/components/layout/navbar";
 import Hero from "@/components/sections/hero";
 import Benefits from "@/components/sections/benefits";
 import ProductsPreview from "@/components/sections/products-preview";
-import CtaSection from "@/components/sections/cta-section";
+import QualityProcess from "@/components/sections/quality-process";
+import Applications from "@/components/sections/applications";
+import DistributionChannel from "@/components/sections/distribution-channel";
 import Footer from "@/components/layout/footer";
 
 export default function Home() {
@@ -11,9 +13,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Benefits />
-      
+
       <ProductsPreview />
-      <CtaSection />
+      <QualityProcess />
+      <Applications />
+      <DistributionChannel />
       <Footer />
     </main>
   );

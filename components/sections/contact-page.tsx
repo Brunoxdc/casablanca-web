@@ -1,92 +1,102 @@
-import { Clock, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Clock } from "lucide-react";
 import QuoteFormFields from "@/components/forms/quote-form-fields";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { WhatsappIcon } from "@/components/icons/whatsapp-icon";
-import { site, whatsappUrl } from "@/lib/site-config";
+import { site } from "@/lib/site-config";
 
 const channels = [
   {
-    icon: <WhatsappIcon size={20} />,
-    title: "WhatsApp",
-    detail: site.phone.display,
-    sub: "Respuesta el mismo día hábil",
-    href: whatsappUrl(),
+    label: "WhatsApp y teléfono",
+    value: site.phone.display,
+    href: `tel:+${site.phone.e164}`,
   },
   {
-    icon: <Mail size={20} />,
-    title: "Correo",
-    detail: "ventas@papeleracasablanca.com",
-    sub: "Para cotizaciones formales",
-    href: `mailto:ventas@papeleracasablanca.com`,
+    label: "Correo comercial",
+    value: "ventas@papeleracasablanca.com",
+    href: "mailto:ventas@papeleracasablanca.com",
   },
   {
-    icon: <MapPin size={20} />,
-    title: "Fábrica",
-    detail: site.address.short,
-    sub: "Despachos a todo Lima",
-    // Reemplazamos "null" por el enlace de Google Maps
+    label: "Ubicación",
+    value: site.address.full,
     href: "https://www.google.com/maps/search/?api=1&query=Urb.+Los+Chales+Mz.+B+Lote+7A,+San+Vicente,+Cañete,+Perú",
   },
 ];
 
 export default function ContactPage() {
   return (
-    <Section bg="white">
-      <SectionHeading
-        as="h1"
-        eyebrow="Contáctanos"
-        title="Hablemos de tu próximo pedido"
-        subtitle="Elige el canal que prefieras o llena el formulario — te respondemos con disponibilidad y condiciones para compra corporativa."
-      />
+    <>
+      {/* Intro */}
+      <Section bg="brand">
+        <SectionHeading
+          as="h1"
+          eyebrow="Cotización empresarial"
+          eyebrowTone="accent"
+          title="Conversemos sobre tu requerimiento"
+          subtitle="Comparte el producto, volumen estimado y lugar de entrega. Preparamos tu solicitud para continuar la atención por WhatsApp."
+          inverted
+        />
+      </Section>
 
-      <div className="mt-12 grid sm:grid-cols-3 gap-5">
-        {channels.map((channel, i) => {
-          const Wrapper = channel.href ? "a" : "div";
-          return (
-            <Reveal key={channel.title} delay={i * 90}>
-              <Wrapper
-                {...(channel.href
-                  ? { href: channel.href, target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="block rounded-[var(--radius-lg)] border border-[var(--color-border)] p-6 transition-colors hover:border-[var(--color-primary)]"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-surface)] text-[var(--color-primary-dark)]">
-                  {channel.icon}
-                </div>
-                <h2 className="mt-4 text-sm font-bold uppercase tracking-wide text-[var(--color-text)]">
-                  {channel.title}
-                </h2>
-                <p className="mt-1 text-[15px] font-semibold text-[var(--color-text)]">
-                  {channel.detail}
-                </p>
-                <p className="mt-1 text-xs text-[var(--color-text-muted)]">{channel.sub}</p>
-              </Wrapper>
+      {/* Canales + formulario */}
+      <Section bg="white">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10">
+          <div className="flex flex-col gap-5">
+            {channels.map((channel) => (
+              <Reveal key={channel.label}>
+                <a
+                  href={channel.href}
+                  target={channel.href.startsWith("http") ? "_blank" : undefined}
+                  rel={channel.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="block rounded-[var(--radius-lg)] border border-[var(--color-border)] p-5 transition-colors hover:border-[var(--color-primary)]"
+                >
+                  <p className="text-[12px] font-black uppercase tracking-[0.14em] text-[#788b43]">
+                    {channel.label}
+                  </p>
+                  <p className="mt-1.5 text-[15px] font-bold text-[var(--color-text)]">
+                    {channel.value}
+                  </p>
+                </a>
+              </Reveal>
+            ))}
+
+            <Reveal delay={100}>
+              <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
+                <Clock size={16} className="text-[var(--color-primary)]" />
+                Atención lunes a sábado, 8:00 a.m. – 6:00 p.m.
+              </div>
             </Reveal>
-          );
-        })}
-      </div>
 
-      <div className="mt-6 flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
-        <Clock size={16} className="text-[var(--color-primary)]" />
-        Atención lunes a sábado, 8:00 a.m. – 6:00 p.m.
-      </div>
-
-      <Reveal delay={200}>
-        <div className="mt-14 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-10">
-          <h2 className="text-lg font-bold text-[var(--color-text)]">
-            Cuéntanos qué necesitas
-          </h2>
-          <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-            Al enviar el formulario se abre WhatsApp con tu mensaje listo
-            para confirmar.
-          </p>
-          <div className="mt-6 max-w-2xl">
-            <QuoteFormFields className="grid gap-4" />
+            <Reveal delay={180}>
+              <div className="relative h-[360px] w-full overflow-hidden">
+                <Image
+                  src="/chatgpt-mockup/hero-white-paper-v2.webp"
+                  alt="Papel institucional Casa Blanca"
+                  fill
+                  sizes="(min-width: 1024px) 35vw, 90vw"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
           </div>
+
+          <Reveal delay={150}>
+            <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-10">
+              <h2 className="text-lg font-bold text-[var(--color-text)]">
+                Cuéntanos qué necesitas
+              </h2>
+              <p className="mt-1 text-sm text-[var(--color-text-muted)]">
+                Al enviar el formulario se abre WhatsApp con tu mensaje listo
+                para confirmar.
+              </p>
+              <div className="mt-6">
+                <QuoteFormFields className="grid gap-4" />
+              </div>
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
-    </Section>
+      </Section>
+    </>
   );
 }

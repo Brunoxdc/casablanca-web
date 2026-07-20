@@ -8,6 +8,8 @@ interface SectionHeadingProps {
   align?: "left" | "center";
   /** Usar sobre fondos oscuros o degradados */
   inverted?: boolean;
+  /** Color del eyebrow: "brand" (por defecto, navy/blanco), "muted" (gris apagado) o "accent" (verde, oliva en fondo claro / verde pálido en fondo oscuro) */
+  eyebrowTone?: "brand" | "muted" | "accent";
   as?: "h1" | "h2";
   className?: string;
 }
@@ -18,6 +20,7 @@ export function SectionHeading({
   subtitle,
   align = "left",
   inverted = false,
+  eyebrowTone = "brand",
   as = "h2",
   className,
 }: SectionHeadingProps) {
@@ -33,8 +36,10 @@ export function SectionHeading({
       {eyebrow && (
         <span
           className={cn(
-            "eyebrow",
-            inverted && "!text-white/80"
+            "text-[12px] font-black uppercase tracking-[0.14em]",
+            eyebrowTone === "muted" && "text-[#667482]",
+            eyebrowTone === "accent" && (inverted ? "text-[#a9ca69]" : "text-[#788b43]"),
+            eyebrowTone === "brand" && cn("eyebrow", inverted && "!text-white/80")
           )}
         >
           {eyebrow}

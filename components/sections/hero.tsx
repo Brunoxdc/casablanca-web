@@ -20,12 +20,12 @@ export default function Hero() {
           }}
         >
           <Image
-            src="/producto-hero.png"
+            src="/chatgpt-mockup/hero-white-paper-v2.webp"
             alt="Rollos de Papel Higiénico Casa Blanca"
             fill
             priority
             sizes="(min-width: 1024px) 60vw, 100vw"
-            className="object-cover object-[center_right]" 
+            className="object-cover object-[center_right]"
           />
         </div>
       </div>
@@ -38,17 +38,16 @@ export default function Hero() {
           <Reveal>
             {/* Tamaños de texto ajustados para ser más compactos (3.75rem en desktop) */}
             <h1 className="mt-2 text-[2.75rem] sm:text-[3.25rem] lg:text-[3.75rem] leading-[1.05] font-serif font-bold text-[var(--color-primary)] tracking-tight">
-              Papel higiénico <br />
-              por mayor <br />
+              Soluciones de papel <br />
               <span className="block font-sans font-semibold text-[1.75rem] sm:text-[2rem] lg:text-[2.2rem] text-[var(--color-accent)] mt-1">
-                para empresas y negocios
+                para empresas e instituciones
               </span>
             </h1>
-            
+
             <p className="mt-5 text-[15px] sm:text-[16px] text-gray-700 max-w-[450px] leading-relaxed">
-              Directo de fábrica, con celulosa virgen, <br />
-              <strong className="text-[var(--color-primary)] font-bold">calidad superior y atención rápida</strong> <br />
-              para tu operación diaria.
+              Abastecemos operaciones que necesitan{" "}
+              <strong className="text-[var(--color-primary)] font-bold">calidad constante, rendimiento y atención comercial directa</strong>{" "}
+              desde fábrica.
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">

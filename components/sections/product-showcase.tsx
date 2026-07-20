@@ -1,110 +1,164 @@
-import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { ProductPhotoFrame } from "@/components/ui/product-photo-frame";
 import { Reveal } from "@/components/ui/reveal";
 import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 
 const products = [
   {
+    tag: "Producto destacado",
+    number: "01",
     name: "Papel Jumbo Institucional",
     detail:
       "Rollos de alta capacidad pensados para puntos de consumo intenso, con menos cambios de rollo y menos quiebres de stock.",
-    image: "/productos/papel-jumbo.png",
-    specs: [
-      "Presentación: 6 rollos x 200 metros",
-      "Alto rendimiento para tráfico constante",
-      "Ideal para oficinas, hoteles y centros comerciales",
-    ],
+    image: "/chatgpt-mockup/producto-jumbo-hero.webp",
+    specs: ["6 rollos", "200 metros", "Doble hoja", "Celulosa virgen"],
   },
   {
+    tag: "Reposición y comercio",
+    number: "02",
     name: "Papel Higiénico Black",
     detail:
       "Nuestra línea de mayor suavidad, con celulosa virgen, para negocios que buscan una presentación premium sin dejar de lado el precio por mayor.",
-    image: "/productos/papel-higienico.png",
-    specs: [
-      "Presentación: plancha de 24 rollos x 40 metros",
-      "Celulosa virgen, suave y resistente",
-      "Ideal para restaurantes y negocios de atención al público",
-    ],
+    image: "/chatgpt-mockup/producto-24-rollos.webp",
+    specs: ["24 rollos", "40 metros", "Doble hoja", "Extra suave"],
   },
   {
-    name: "Papel Institucional Blanco",
-    detail:
-      "La opción balanceada entre calidad y costo para mantener abastecida tu operación diaria sin sobrecostos.",
-    image: "/productos/papel-institucional.png",
-    specs: [
-      "Presentación: fardo institucional",
-      "Buen rendimiento en uso frecuente",
-      "Ideal para oficinas, colegios e instituciones",
-    ],
-  },
-  {
+    tag: "Cocina y limpieza",
+    number: "03",
     name: "Toalla Institucional y Dispensadores",
     detail:
       "Sistema completo de secado de manos: toalla institucional más dispensadores, para baños y cocinas de uso intensivo.",
-    image: "/productos/papel-toalla.png",
-    specs: [
-      "Incluye rollos de toalla y dispensador",
-      "Alta absorción, menor consumo por uso",
-      "Ideal para baños y cocinas de alto tráfico",
-    ],
+    image: "/chatgpt-mockup/producto-toalla.webp",
+    specs: ["Rollo + dispensador", "Alta absorción", "Uso intensivo"],
   },
 ];
 
 export default function ProductShowcase() {
   return (
-    <Section bg="white">
-      <SectionHeading
-        as="h1"
-        eyebrow="Catálogo completo"
-        title="Productos institucionales por mayor"
-        subtitle="Cuatro líneas pensadas para distintos niveles de tráfico y presupuesto, todas con celulosa virgen y despacho coordinado."
-      />
+    <>
+      {/* Intro */}
+      <Section bg="white">
+        <SectionHeading
+          as="h1"
+          eyebrow="Portafolio institucional y mayorista"
+          eyebrowTone="muted"
+          title="Productos definidos por rendimiento y aplicación"
+          subtitle="Compara presentaciones y encuentra la alternativa adecuada para el consumo de tu empresa o canal de distribución."
+        />
+        <Reveal delay={100}>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/contacto" className={buttonVariants({ variant: "primary", size: "lg" })}>
+              Solicitar asesoría
+            </Link>
+            <a href="#catalogo" className={buttonVariants({ variant: "ghost" })}>
+              Explorar catálogo ↓
+            </a>
+          </div>
+        </Reveal>
+      </Section>
 
-      <div className="mt-16 flex flex-col gap-20">
-        {products.map((product, i) => (
-          <Reveal key={product.name}>
-            <div
-              className={`grid lg:grid-cols-2 gap-10 items-center ${
-                i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
-              }`}
+      {/* Índice rápido */}
+      <div className="border-y border-[var(--color-border)]">
+        <div className="container flex flex-wrap gap-x-10 gap-y-3 py-5">
+          {products.map((product) => (
+            <a
+              key={product.name}
+              href={`#producto-${product.number}`}
+              className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-primary)]"
             >
-              <ProductPhotoFrame src={product.image} alt={product.name} aspect="landscape" />
-
-              <div>
-                <h2 className="text-xl md:text-2xl font-bold text-[var(--color-text)]">
-                  {product.name}
-                </h2>
-                <p className="mt-3 text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-                  {product.detail}
-                </p>
-                <ul className="mt-5 flex flex-col gap-2.5">
-                  {product.specs.map((spec) => (
-                    <li
-                      key={spec}
-                      className="flex items-start gap-2 text-sm text-[var(--color-text)]"
-                    >
-                      <CheckCircle2
-                        size={17}
-                        className="mt-0.5 shrink-0 text-[var(--color-primary)]"
-                      />
-                      {spec}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contacto"
-                  className={buttonVariants({ variant: "primary", className: "mt-7" })}
-                >
-                  Cotizar este producto
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        ))}
+              <span className="font-black text-[#788b43]">{product.number}</span>
+              {product.name}
+            </a>
+          ))}
+        </div>
       </div>
-    </Section>
+
+      {/* Catálogo */}
+      <Section bg="white" id="catalogo">
+        <div className="flex flex-col gap-20">
+          {products.map((product, i) => (
+            <Reveal key={product.name} className="scroll-mt-24">
+              <div
+                id={`producto-${product.number}`}
+                className={`grid lg:grid-cols-2 gap-10 items-center ${
+                  i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
+                }`}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-surface)]">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-contain p-8"
+                  />
+                  <span className="absolute top-4 left-4 rounded-md bg-[var(--color-primary)] px-3 py-1.5 text-xs font-bold text-white">
+                    {product.tag}
+                  </span>
+                </div>
+
+                <div>
+                  <p className="text-[12px] font-black uppercase tracking-[0.14em] text-[#667482]">
+                    {product.tag}
+                  </p>
+                  <div className="mt-2 flex items-baseline gap-3">
+                    <span className="text-2xl font-black text-[#788b43]">{product.number}</span>
+                    <h2 className="text-xl md:text-2xl font-bold text-[var(--color-text)]">
+                      {product.name}
+                    </h2>
+                  </div>
+                  <p className="mt-3 text-[15px] text-[var(--color-text-muted)] leading-relaxed">
+                    {product.detail}
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {product.specs.map((spec) => (
+                      <span
+                        key={spec}
+                        className="rounded-md border border-[#cbd4bf] px-3 py-1.5 text-xs font-semibold text-[#536633]"
+                      >
+                        {spec}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link
+                    href="/contacto"
+                    className={buttonVariants({
+                      variant: "secondary",
+                      className: "mt-7 !rounded-md",
+                    })}
+                  >
+                    Solicitar cotización
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* No sabes cuál elegir */}
+      <Section bg="surface">
+        <div className="max-w-2xl">
+          <SectionHeading
+            eyebrow="¿No sabes cuál elegir?"
+            eyebrowTone="muted"
+            title="Te ayudamos a estimar la presentación adecuada"
+            subtitle="Cuéntanos el tipo de establecimiento, número de usuarios y frecuencia de reposición. Te orientamos antes de cotizar."
+          />
+          <Reveal delay={100}>
+            <Link
+              href="/contacto"
+              className={buttonVariants({ variant: "primary", size: "lg", className: "mt-6" })}
+            >
+              Hablar con un asesor
+            </Link>
+          </Reveal>
+        </div>
+      </Section>
+    </>
   );
 }
