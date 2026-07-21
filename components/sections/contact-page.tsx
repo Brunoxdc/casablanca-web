@@ -1,38 +1,72 @@
 "use client";
 
-import { MessageSquare, Phone, MapPin, Send } from "lucide-react";
+import { MessageSquare, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 
 export default function ContactPage() {
   return (
     <>
-      {/* Cabecera */}
-      <section className="relative flex items-center justify-center overflow-hidden py-16 md:py-20 px-6 bg-[var(--color-primary-dark)] text-white">
-        <div className="container relative z-20 text-center max-w-3xl mx-auto flex flex-col items-center">
-          <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs sm:text-sm font-semibold text-white border border-white/20 backdrop-blur-md mb-4 shadow-lg">
-              <MapPin size={16} className="text-[var(--color-accent)]" />
-              Atención a nivel nacional desde Cañete, Lima
+      {/* Nueva Cabecera Corporativa Minimalista (Adiós al bloque oscuro repetido) */}
+      <section className="relative overflow-hidden bg-slate-50 border-b border-[var(--color-border)] py-16 md:py-24 px-6">
+        <div className="container relative z-10 max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Titulares */}
+            <div className="lg:col-span-7">
+              <Reveal>
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#788b43]/10 px-4 py-1.5 text-xs sm:text-sm font-bold text-[#536633] mb-6 border border-[#788b43]/20">
+                  <MapPin size={16} className="text-[#788b43]" />
+                  Fabricación y distribución desde Cañete, Lima
+                </div>
+              </Reveal>
+
+              <Reveal delay={100}>
+                <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-serif font-bold text-[var(--color-primary-dark)] leading-[1.1] mb-6">
+  Conversemos sobre tu requerimiento institucional.
+</h1>
+              </Reveal>
+
+              <Reveal delay={200}>
+                <p className="text-base sm:text-lg text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                  Comparte el tipo de producto, volumen estimado y lugar de destino. Te preparamos una propuesta directa y rápida sin intermediarios.
+                </p>
+              </Reveal>
             </div>
-          </Reveal>
 
-          <Reveal delay={100}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold leading-[1.1]">
-              Conversemos sobre tu <br />
-              <span className="block mt-2 text-[var(--color-accent)]">requerimiento institucional</span>
-            </h1>
-          </Reveal>
+            {/* Tarjeta lateral de confianza / Beneficios rápidos */}
+            <div className="lg:col-span-5">
+              <Reveal delay={250}>
+                <div className="rounded-[var(--radius-lg)] bg-white p-6 sm:p-8 border border-[var(--color-border)] shadow-xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[#788b43]/5 rounded-bl-full -z-0"></div>
+                  
+                  <h3 className="font-serif font-bold text-lg text-[var(--color-primary-dark)] mb-4">
+                    ¿Por qué cotizar con nosotros?
+                  </h3>
+                  
+                  <ul className="space-y-3 text-sm text-[var(--color-text-muted)]">
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle2 size={18} className="text-[#788b43] shrink-0" />
+                      <span>Atención comercial directa y personalizada</span>
+                    </li>
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle2 size={18} className="text-[#788b43] shrink-0" />
+                      <span>Precios especiales por volumen mayorista</span>
+                    </li>
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle2 size={18} className="text-[#788b43] shrink-0" />
+                      <span>Abastecimiento constante para empresas</span>
+                    </li>
+                  </ul>
+                </div>
+              </Reveal>
+            </div>
 
-          <Reveal delay={200}>
-            <p className="mt-4 text-sm sm:text-base text-white/80 leading-relaxed max-w-xl mx-auto">
-              Comparte el producto, volumen estimado y lugar de entrega. Te preparamos una propuesta directa y rápida.
-            </p>
-          </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* Contenido Principal (Dos Columnas) */}
+      {/* Contenido Principal: Dos Columnas (Canales + Formulario con Web3Forms) */}
       <Section bg="white" spacing="sm">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           
