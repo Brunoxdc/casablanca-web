@@ -45,17 +45,22 @@ const sectores = [
 ];
 
 export default function About() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoControlRef = useRef<HTMLVideoElement>(null);
+  const videoWorkRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 8;
+    if (videoControlRef.current) {
+      videoControlRef.current.currentTime = 15;
+    }
+    // Si tu nuevo video necesita iniciar en un segundo en específico, puedes cambiarlo aquí abajo, o dejarlo en 0 si empieza desde el inicio:
+    if (videoWorkRef.current) {
+      videoWorkRef.current.currentTime = 0;
     }
   }, []);
 
   return (
     <>
-      {/* Intro - DISEÑO INMERSIVO (Papel más visible con menos opacidad oscura) */}
+      {/* Intro */}
       <section className="relative flex min-h-[50vh] md:min-h-[60vh] items-center justify-center overflow-hidden py-16 px-6">
         <Image
           src="/producto-hero.png"
@@ -65,7 +70,6 @@ export default function About() {
           className="object-cover object-center z-0"
         />
         
-        {/* Capa oscura más ligera (/70) para que el fondo del papel resalte más */}
         <div className="absolute inset-0 bg-[var(--color-primary-dark)]/70 z-10"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary-dark)] to-transparent z-10"></div>
 
@@ -94,7 +98,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Proceso y control */}
+      {/* Proceso y control - Video desde el segundo 0:15 */}
       <Section bg="white" spacing="sm" className="overflow-hidden">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
@@ -125,19 +129,20 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="relative mx-auto max-w-[500px] lg:max-w-none mt-8 lg:mt-0">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border-[10px] sm:border-[16px] border-white bg-white shadow-xl rotate-[-2deg] transition-transform hover:rotate-0 duration-500 z-10">
-                <div className="absolute inset-0 bg-black/5 mix-blend-overlay z-10"></div>
-                <Image
-                  src="/chatgpt-mockup/control-calidad.webp"
-                  alt="Control de calidad en fábrica"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 90vw"
-                  className="object-cover contrast-110 brightness-95"
-                />
-              </div>
-              <div className="absolute -bottom-8 -right-8 -z-0 h-[90%] w-[90%] rounded-xl bg-[var(--color-primary-dark)]/10 blur-xl"></div>
-              <div className="absolute -top-6 -left-6 -z-0 h-24 w-24 rounded-full bg-[#788b43]/20 blur-2xl"></div>
+            <div className="relative w-full aspect-[4/3] rounded-3xl shadow-xl overflow-hidden border border-gray-100 bg-gray-50">
+              <video
+                ref={videoControlRef}
+                autoPlay
+                muted
+                loop
+                playsInline
+                onLoadedMetadata={() => {
+                  if (videoControlRef.current) videoControlRef.current.currentTime = 15;
+                }}
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/chatgpt-mockup/proceso-casa-blanca.mp4" type="video/mp4" />
+              </video>
             </div>
           </Reveal>
         </div>
@@ -219,7 +224,7 @@ export default function About() {
         </div>
       </Section>
 
-      {/* Así trabajamos - VIDEO INICIANDO EN SEGUNDO 8 */}
+      {/* Así trabajamos - NUEVO VIDEO (nuevo-video.mp4) CON ESTILO OVALADO */}
       <Section bg="white" spacing="sm">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <Reveal>
@@ -237,20 +242,16 @@ export default function About() {
           </Reveal>
           
           <Reveal delay={100}>
-            <div className="relative w-full aspect-video rounded-[var(--radius-lg)] shadow-xl overflow-hidden border border-gray-100 bg-gray-50">
+            <div className="relative w-full aspect-[4/3] rounded-3xl shadow-xl overflow-hidden border border-gray-100 bg-gray-50">
               <video
-                ref={videoRef}
+                ref={videoWorkRef}
                 autoPlay
                 muted
                 loop
                 playsInline
-                onLoadedMetadata={() => {
-                  if (videoRef.current) videoRef.current.currentTime = 8;
-                }}
-                poster="/chatgpt-mockup/proceso-casa-blanca-poster.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src="/chatgpt-mockup/proceso-casa-blanca.mp4" type="video/mp4" />
+                <source src="/chatgpt-mockup/nuevo-video.mp4" type="video/mp4" />
               </video>
             </div>
           </Reveal>
