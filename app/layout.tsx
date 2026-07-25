@@ -16,10 +16,9 @@ const body = Inter({
 
 export const metadata: Metadata = {
   title: "Casa Blanca | Papel Higiénico Institucional",
-  description:
-    "Papel higiénico de alta calidad para hogares, empresas e instituciones. Suavidad al mejor precio.",
+  description: "Papel higiénico de alta calidad para hogares, empresas e instituciones.",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon.png", // Asegúrate de que este archivo esté en tu carpeta public o app
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
