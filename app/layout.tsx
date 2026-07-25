@@ -18,8 +18,12 @@ export const metadata: Metadata = {
   title: "Casa Blanca | Papel Higiénico Institucional",
   description:
     "Papel higiénico de alta calidad para hogares, empresas e instituciones. Suavidad al mejor precio.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
-
 export default function RootLayout({
   children,
 }: {
