@@ -15,7 +15,7 @@ export const site = {
   email: "ventas@casablanca.com.pe",
   address: {
     short: "Cañete, Lima – Perú",
-    full: "Urb. Los Chales Mz. B Lote 7A, San Vicente, Cañete, Perú",
+    full: "Urbanización Luis Chala MZ B lote 7A San Vicente de Cañete, Perú",
   },
   hours: "Lun a sáb, 8:00 a.m. – 6:00 p.m.",
   social: {
