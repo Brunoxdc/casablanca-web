@@ -126,10 +126,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
+            {/* Copyright */}
       <div className="border-t border-white/10">
-        <div className="container py-2.5 text-[9px] text-white/45 text-center">
-          © {new Date().getFullYear()} Casa Blanca Papel Higiénico. Todos los derechos reservados.
+        <div className="container py-2.5 text-[9px] text-white/45 text-center space-y-0.5">
+          <p className="text-white/60">Papelera Casa Blanca E.I.R.L. · RUC 20615123057</p>
+          <p>Domicilio fiscal: Calle Jaén 187, Urb. Mayorazgo Et. Tres, Ate, Lima</p>
+          <p>Planta: Urb. Luis Chala Mz B Lote 7A, San Vicente de Cañete</p>
+          <p className="pt-1">
+            © {new Date().getFullYear()} Casa Blanca Papel Higiénico. Todos los derechos reservados.
+          </p>
         </div>
       </div>
     </footer>
